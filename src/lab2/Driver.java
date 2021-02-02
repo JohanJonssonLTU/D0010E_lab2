@@ -14,6 +14,8 @@ public class Driver {
 		Room room1 = new Room(70, 80, Color.yellow);
 		Room room2 = new Room(20, 100, Color.cyan);
 		
+		
+		
 //		System.out.println(room);
 //		System.out.println(room.color);
 //		System.out.println(room1);
