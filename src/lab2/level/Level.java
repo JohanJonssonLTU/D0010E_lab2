@@ -61,7 +61,7 @@ public class Level extends Observable {
 	}
 	
 	private boolean isRoom(Room r, int y) {
-		return r.posY >= y;
+		return r.height >= y;
 	}
 
 	//tilldelar ett rum spelare
