@@ -36,12 +36,12 @@ public class Driver {
 		
 		//borde ge storlek 5
 		Level level1 = new Level();
-		level1.place(room1, 0, 0);
-		level1.place(room2, 10, 10);
-		level1.place(room3, 20, 20);
-		level1.place(room4, 30, 30);
-		level1.place(room5, 40, 40);
-		level1.place(room6, 50, 50);
+		level1.place(room1, 50, 50);
+		level1.place(room2, 40, 40);
+		level1.place(room3, 30, 30);
+		level1.place(room4, 20, 20);
+		level1.place(room5, 10, 10);
+		level1.place(room6, 0, 0);
 		System.out.println(level1);
 		
 
