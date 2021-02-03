@@ -16,7 +16,6 @@ public class Level extends Observable {
 	}
 	
 	public boolean place(Room r, int x, int y) {
-		
 //		this.isRoom(r, y);
 		this.hasRooms();
 		
@@ -29,7 +28,10 @@ public class Level extends Observable {
 				int prevRoomX = this.allRooms.get(i).posX;
 				int prevRoomY = this.allRooms.get(i).posY;
 				
-				return y - r.height < prevRoomY && prevRoomX + prevRoomWidth > x;
+				return x < prevRoomX && x + r.width > prevRoomX &&
+						y - r.height < prevRoomY && x + r.width > prevRoomX &&
+						y - r.height < prevRoomY && prevRoomX + prevRoomWidth > x &&
+						x > prevRoomX && y < prevRoomY && x < prevRoomWidth && y > prevRoomHeight;
 //				if (prevRoomX < prevRoomY) {
 //					return false;
 				
