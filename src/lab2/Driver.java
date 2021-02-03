@@ -15,8 +15,8 @@ public class Driver {
 
 		
 //		task2 and 3
-		Room room1 = new Room(5, 5, Color.cyan);
-		Room room2 = new Room(5, 5, Color.green);
+		Room room1 = new Room(1, 1, Color.cyan);
+		Room room2 = new Room(2, 2, Color.green);
 		Room room3 = new Room(5, 5, Color.darkGray);
 		Room room4 = new Room(5, 5, Color.pink);
 		Room room5 = new Room(5, 5, Color.red);
