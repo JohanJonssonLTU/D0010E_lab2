@@ -77,25 +77,29 @@ public class Level extends Observable {
 				//punkt sydöst 
 				x >= placedRoomX
 				&&
+				x < placedRoomX+placedRoomWidth
+				&&
 				y <= placedRoomY
 				&&
+				y > placedRoomHeight
+//				&&
 				
 				//punkt sydväst
-				x <= placedRoomX
-				&&
-				y <= placedRoomY
-				&&
+//				x <= placedRoomX
+//				&&
+//				y <= placedRoomY
+//				&&
 				
 				//punkt nordväst
-				x <= placedRoomX
-				&&
-				y >= placedRoomY
-				&&
+//				x <= placedRoomX
+//				&&
+//				y >= placedRoomY
+//				&&
 				
 				//punkt nordöst
-				x >= placedRoomX
-				&&
-				y >= placedRoomY
+//				x >= placedRoomX
+//				&&
+//				y >= placedRoomY
 				;
 	}
 
