@@ -7,24 +7,38 @@ public class Level extends Observable {
 
 	//lista som innehåller alla rum
 	ArrayList<Room> allRooms;
+	boolean hasRooms;
 	
 	public Level() {
 		//initierar listan
 		this.allRooms = new ArrayList<Room>();
+		this.hasRooms = false;
 	}
 	
 	public boolean place(Room r, int x, int y) {
 		
-		for (int i = 0; i <= this.allRooms.size(); i++) {
-			int prevRoomWidth = this.allRooms.get(i).width;
-			int prevRoomHeight = this.allRooms.get(i).height;
-			int prevRoomX = this.allRooms.get(i).posX;
-			int prevRoomY = this.allRooms.get(i).posY;
+		if (this.hasRooms == true) { 
 			
-			if (prevRoomWidth < x & prevRoomHeight > y) {
-				return false;
+				for (int i = 0; i <= this.allRooms.size(); i++) {
+				
+				int prevRoomWidth = this.allRooms.get(i).width;
+				int prevRoomHeight = this.allRooms.get(i).height;
+				int prevRoomX = this.allRooms.get(i).posX;
+				int prevRoomY = this.allRooms.get(i).posY;
+				
+				if (prevRoomWidth < x && prevRoomHeight > y) {
+					return false;
+				} else {
+				//sätter korrdinater för övre vänstra hörnet av nytt rum
+					r.posX = x;
+					r.posY = y;
+					this.addRoom(r);
+					return true;
+				}
 			}
 		}
+		
+		return false;
 		
 //		int prevRoomWidth = (this.allRooms.get( this.allRooms.size()) ).width;
 //		int prevRoomHeight = (this.allRooms.get( this.allRooms.size()) ).height;
@@ -34,10 +48,10 @@ public class Level extends Observable {
 //			return false;
 		
 		//sätter korrdinater för övre vänstra hörnet av nytt rum
-		r.posX = x;
-		r.posY = y;
-		this.addRoom(r);
-		return true;
+//		r.posX = x;
+//		r.posY = y;
+//		this.addRoom(r);
+//		return true;
 		
 	}
 	
@@ -49,6 +63,14 @@ public class Level extends Observable {
 	//tilldelar ett rum spelare
 	public void firstLocation(Room r) {
 		r.hasPlayer = true;
+	}
+	
+	public void hasRooms() {
+		if (this.allRooms.size() == 0) {
+			this.hasRooms = false;
+		} else {
+			this.hasRooms = true; 
+		}
 	}
 	
 	public String toString() {
