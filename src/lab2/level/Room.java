@@ -41,8 +41,8 @@ public class Room {
 		this.westWall = r;
 	}
 	
-	public String toString() {
-		return "";
-	}
+//	public String toString() {
+//		return "";
+//	}
 
 }

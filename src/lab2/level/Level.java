@@ -16,16 +16,16 @@ public class Level extends Observable {
 	public boolean place(Room r, int x, int y) {
 
 		//testar om rum överlappar FUNKAR EJ
-		if (x < r.width & -y > r.height) {
-			return false;
-		}
-
+//		if (x < r.width & -y > r.height) {
+//			return false;
+//		}
+		
 		//sätter korrdinater för övre vänstra hörnet av nytt rum
 		r.posX = x;
 		r.posY = y;
 		this.addRoom(r);
 		return true;
-
+		
 	}
 	
 	//appenderar till listan med rum
@@ -38,16 +38,18 @@ public class Level extends Observable {
 		r.hasPlayer = true;
 	}
 	
-//	public Room getRooms() {
-//		
-//		for (int i = 0; i < this.allRooms.size(); i++) {
-//			return this.allRooms.get(i);
-//		}
-//		
-//	}
-	
 	public String toString() {
-		return this.allRooms.size() + "\n";
+		
+//		for (int i = 0; i < this.allRooms.size(); i++) {
+//			return this.allRooms.get(i) + "\n";
+//		}
+		
+		return this.allRooms.get(0) +  "\n" +
+					this.allRooms.get(1) +  "\n" +
+					this.allRooms.get(2) +  "\n" +
+					this.allRooms.get(3) +  "\n" +
+					this.allRooms.get(4) +  "\n" +
+					this.allRooms.get(5);
 	}
 
 }

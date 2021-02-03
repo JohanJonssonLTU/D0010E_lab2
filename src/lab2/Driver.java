@@ -29,15 +29,20 @@ public class Driver {
 //		room3.connectWestTo(room1);
 //		room4.connectWestTo(room1);
 			
-		System.out.println(room1);
-		System.out.println(room2);
+//		System.out.println(room1);
+//		System.out.println(room2);
 //		System.out.println(room3);
 //		System.out.println(room4);
 		
 		Level level1 = new Level();
 		level1.place(room1, 3, 6);
-		level1.place(room2, 5, 7);
+		level1.place(room2, 7, 15);
+		level1.place(room3, 5, 6);
+		level1.place(room4, 7, 9);
+		level1.place(room5, 9, 11);
+		level1.place(room6, 9, 11);
 		System.out.println(level1);
+		
 
 	}
 
