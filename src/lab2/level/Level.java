@@ -17,6 +17,8 @@ public class Level extends Observable {
 	
 	public boolean place(Room r, int x, int y) {
 		
+		this.hasRooms();
+		
 		if (this.hasRooms == true) { 
 			
 				for (int i = 0; i <= this.allRooms.size(); i++) {
@@ -28,17 +30,14 @@ public class Level extends Observable {
 				
 				if (prevRoomWidth < x && prevRoomHeight > y) {
 					return false;
-				} else {
-				//sätter korrdinater för övre vänstra hörnet av nytt rum
-					r.posX = x;
-					r.posY = y;
-					this.addRoom(r);
-					return true;
 				}
 			}
 		}
 		
-		return false;
+		r.posX = x;
+		r.posY = y;
+		this.addRoom(r);
+		return true;
 		
 //		int prevRoomWidth = (this.allRooms.get( this.allRooms.size()) ).width;
 //		int prevRoomHeight = (this.allRooms.get( this.allRooms.size()) ).height;
@@ -65,7 +64,7 @@ public class Level extends Observable {
 		r.hasPlayer = true;
 	}
 	
-	public void hasRooms() {
+	private void hasRooms() {
 		if (this.allRooms.size() == 0) {
 			this.hasRooms = false;
 		} else {
@@ -79,12 +78,7 @@ public class Level extends Observable {
 //			return this.allRooms.get(i) + "\n";
 //		}
 		
-		return this.allRooms.get(0) +  "\n" +
-					this.allRooms.get(1) +  "\n" +
-					this.allRooms.get(2) +  "\n" +
-					this.allRooms.get(3) +  "\n" +
-					this.allRooms.get(4) +  "\n" +
-					this.allRooms.get(5);
+		return this.allRooms.size() + "";
 	}
 
 }
