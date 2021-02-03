@@ -23,21 +23,24 @@ public class Level extends Observable {
 			
 				for (int i = 0; i <= this.allRooms.size()-1; i++) {
 				
-				int prevRoomWidth = this.allRooms.get(i).width;
-				int prevRoomHeight = this.allRooms.get(i).height;
-				int prevRoomX = this.allRooms.get(i).posX;
-				int prevRoomY = this.allRooms.get(i).posY;
-				
-				return x < prevRoomX &&
-						y - r.height < prevRoomY &&
-						x + r.width > prevRoomX &&
-						prevRoomX + prevRoomWidth > x &&
-						x > prevRoomX &&
-						y < prevRoomY &&
-						x < prevRoomWidth && 
-						y > prevRoomHeight;
-//				if (prevRoomX < prevRoomY) {
-//					return false;
+					int prevRoomWidth = this.allRooms.get(i).width;
+					int prevRoomHeight = this.allRooms.get(i).height;
+					int prevRoomX = this.allRooms.get(i).posX;
+					int prevRoomY = this.allRooms.get(i).posY;
+					
+					return x < prevRoomX 
+	//						&&
+	//						y - r.height < prevRoomY 
+	//							&&
+	//						x + r.width > prevRoomX &&
+	//						prevRoomX + prevRoomWidth > x &&
+	//						x > prevRoomX &&
+	//						y < prevRoomY &&
+	//						x < prevRoomWidth && 
+	//						y > prevRoomHeight
+							;
+	//				if (prevRoomX < prevRoomY) {
+	//					return false;
 				
 			}
 		}

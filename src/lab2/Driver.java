@@ -34,6 +34,7 @@ public class Driver {
 //		System.out.println(room3);
 //		System.out.println(room4);
 		
+		//borde ge storlek 5
 		Level level1 = new Level();
 		level1.place(room1, 0, 0);
 		level1.place(room2, 50, 50);
