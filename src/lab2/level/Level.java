@@ -14,11 +14,14 @@ public class Level extends Observable {
 	}
 	
 	public boolean place(Room r, int x, int y) {
-
+		
+		int prevRoomWidth = (this.allRooms.get( this.allRooms.size()+1) ).width;
+		int prevRoomHeight = (this.allRooms.get( this.allRooms.size()+1) ).height;
+		
 		//testar om rum överlappar FUNKAR EJ
-//		if (x < r.width & -y > r.height) {
-//			return false;
-//		}
+		if (prevRoomWidth < r.width & prevRoomHeight > r.height) {
+			return false;
+		}
 		
 		//sätter korrdinater för övre vänstra hörnet av nytt rum
 		r.posX = x;
