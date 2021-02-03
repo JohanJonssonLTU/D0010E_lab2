@@ -37,7 +37,7 @@ public class Driver {
 		Level level1 = new Level();
 		level1.place(room1, 0, 0);
 		level1.place(room2, 50, 50);
-		level1.place(room3, 100, 100);
+		level1.place(room3, 1, 1);
 		level1.place(room4, 150, 150);
 		level1.place(room5, 200, 200);
 		level1.place(room6, 250, 250);

@@ -28,12 +28,12 @@ public class Level extends Observable {
 				int prevRoomX = this.allRooms.get(i).posX;
 				int prevRoomY = this.allRooms.get(i).posY;
 				
-				return x < prevRoomX && 
-						y - r.height < prevRoomY && 
-						x + r.width > prevRoomX && 
+				return x < prevRoomX &&
+						y - r.height < prevRoomY &&
+						x + r.width > prevRoomX &&
 						prevRoomX + prevRoomWidth > x &&
-						x > prevRoomX && 
-						y < prevRoomY && 
+						x > prevRoomX &&
+						y < prevRoomY &&
 						x < prevRoomWidth && 
 						y > prevRoomHeight;
 //				if (prevRoomX < prevRoomY) {
