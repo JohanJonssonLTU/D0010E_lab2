@@ -17,18 +17,19 @@ public class Level extends Observable {
 	
 	public boolean place(Room r, int x, int y) {
 		
+		this.isRoom(r, y);
 		this.hasRooms();
 		
 		if (this.hasRooms == true) { 
 			
-				for (int i = 0; i <= this.allRooms.size(); i++) {
+				for (int i = 0; i <= this.allRooms.size()-1; i++) {
 				
 				int prevRoomWidth = this.allRooms.get(i).width;
 				int prevRoomHeight = this.allRooms.get(i).height;
 				int prevRoomX = this.allRooms.get(i).posX;
 				int prevRoomY = this.allRooms.get(i).posY;
 				
-				if (prevRoomWidth < x && prevRoomHeight > y) {
+				if (prevRoomX < prevRoomY) {
 					return false;
 				}
 			}
@@ -57,6 +58,10 @@ public class Level extends Observable {
 	//appenderar till listan med rum
 	private void addRoom(Room r) {
 		this.allRooms.add(r);
+	}
+	
+	private boolean isRoom(Room r, int y) {
+		return r.posY >= y;
 	}
 
 	//tilldelar ett rum spelare
