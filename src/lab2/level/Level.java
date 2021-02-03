@@ -73,13 +73,29 @@ public class Level extends Observable {
 		int placedRoomY = this.allRooms.get(i).posY;
 		
 		//TODO LOGIK för riktig overlapkoll
-		return 
-				//funkar
-				x > placedRoomX && 
-				x < placedRoomX + placedRoomWidth
+		return
+				//punkt sydöst 
+				x >= placedRoomX
+				&&
+				y <= placedRoomY
+				&&
 				
-//				y < placedRoomY &&
-//				y > placedRoomY + placedRoomHeight
+				//punkt sydväst
+				x <= placedRoomX
+				&&
+				y <= placedRoomY
+				&&
+				
+				//punkt nordväst
+				x <= placedRoomX
+				&&
+				y >= placedRoomY
+				&&
+				
+				//punkt nordöst
+				x >= placedRoomX
+				&&
+				y >= placedRoomY
 				;
 	}
 

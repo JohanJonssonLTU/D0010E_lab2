@@ -36,8 +36,8 @@ public class Driver {
 		
 		//ny place() om nya x är mindre än de existerande. 
 		Level level1 = new Level();
-		level1.place(room1, 0, 0);
-		level1.place(room2, 100, 100);
+		level1.place(room1, 50, 50);
+		level1.place(room2, 49, 49);
 		level1.place(room3, 200, 200);
 		level1.place(room4, 300, 300);
 		level1.place(room5, 400, 400);
