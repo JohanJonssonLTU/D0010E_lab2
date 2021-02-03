@@ -17,7 +17,7 @@ public class Level extends Observable {
 	
 	public boolean place(Room r, int x, int y) {
 		
-		this.isRoom(r, y);
+//		this.isRoom(r, y);
 		this.hasRooms();
 		
 		if (this.hasRooms == true) { 
@@ -60,9 +60,9 @@ public class Level extends Observable {
 		this.allRooms.add(r);
 	}
 	
-	private boolean isRoom(Room r, int y) {
-		return r.height >= y;
-	}
+//	private boolean isRoom(Room r, int y) {
+//		return r.height >= y;
+//	}
 
 	//tilldelar ett rum spelare
 	public void firstLocation(Room r) {
