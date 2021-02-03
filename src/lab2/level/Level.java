@@ -15,13 +15,21 @@ public class Level extends Observable {
 	
 	public boolean place(Room r, int x, int y) {
 		
-		int prevRoomWidth = (this.allRooms.get( this.allRooms.size()+1) ).width;
-		int prevRoomHeight = (this.allRooms.get( this.allRooms.size()+1) ).height;
-		
-		//testar om rum överlappar FUNKAR EJ
-		if (prevRoomWidth < r.width & prevRoomHeight > r.height) {
-			return false;
+		for (int i = 0; i <= this.allRooms.size(); i++) {
+			int prevRoomWidth = this.allRooms.get(i).width;
+			int prevRoomHeight = this.allRooms.get(i).height;
+			
+			if (prevRoomWidth < x & prevRoomHeight > y) {
+				return false;
+			}
 		}
+		
+//		int prevRoomWidth = (this.allRooms.get( this.allRooms.size()) ).width;
+//		int prevRoomHeight = (this.allRooms.get( this.allRooms.size()) ).height;
+//		
+//		//testar om rum överlappar FUNKAR EJ
+//		if (prevRoomWidth < x & prevRoomHeight > y) {
+//			return false;
 		
 		//sätter korrdinater för övre vänstra hörnet av nytt rum
 		r.posX = x;
