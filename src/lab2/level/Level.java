@@ -1,21 +1,21 @@
 package lab2.level;
 
-import java.util.List;
+import java.util.ArrayList;
 import java.util.Observable;
 
 public class Level extends Observable {
 
-	List<Room> rooms;
+	ArrayList<Room> allRooms;
 	
 	public Level() {
-		this.rooms = null;
+		this.allRooms = new ArrayList<Room>();
 	}
 	
 	public boolean place(Room r, int x, int y) {
 
-		if (x < r.width & -y > r.height) {
-			return false;
-		}
+//		if (x < r.width & -y > r.height) {
+//			return false;
+//		}
 
 		r.posX = x;
 		r.posY = y;
@@ -25,12 +25,23 @@ public class Level extends Observable {
 	}
 	
 	private void addRoom(Room r) {
-		this.rooms.add(r);
+		this.allRooms.add(r);
 	}
 
 	public void firstLocation(Room r) {
 		r.hasPlayer = true;
 	}
 	
+//	public Room getRooms() {
+//		
+//		for (int i = 0; i < this.allRooms.size(); i++) {
+//			return this.allRooms.get(i);
+//		}
+//		
+//	}
+	
+	public String toString() {
+		return this.allRooms.size() + "\n";
+	}
 
 }
