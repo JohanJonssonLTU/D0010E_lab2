@@ -5,18 +5,22 @@ import java.util.Observable;
 
 public class Level extends Observable {
 
+	//lista som innehåller alla rum
 	ArrayList<Room> allRooms;
 	
 	public Level() {
+		//initierar listan
 		this.allRooms = new ArrayList<Room>();
 	}
 	
 	public boolean place(Room r, int x, int y) {
 
-//		if (x < r.width & -y > r.height) {
-//			return false;
-//		}
+		//testar om rum överlappar FUNKAR EJ
+		if (x < r.width & -y > r.height) {
+			return false;
+		}
 
+		//sätter korrdinater för övre vänstra hörnet av nytt rum
 		r.posX = x;
 		r.posY = y;
 		this.addRoom(r);
@@ -24,10 +28,12 @@ public class Level extends Observable {
 
 	}
 	
+	//appenderar till listan med rum
 	private void addRoom(Room r) {
 		this.allRooms.add(r);
 	}
 
+	//tilldelar ett rum spelare
 	public void firstLocation(Room r) {
 		r.hasPlayer = true;
 	}

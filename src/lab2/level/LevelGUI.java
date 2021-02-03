@@ -75,4 +75,8 @@ public class LevelGUI implements Observer {
 
 	}
 	
+	public String toString() {
+		return "";
+	}
+	
 }

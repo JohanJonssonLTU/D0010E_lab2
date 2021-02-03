@@ -40,5 +40,9 @@ public class Room {
 	public void connectWestTo(Room r) {
 		this.westWall = r;
 	}
+	
+	public String toString() {
+		return "";
+	}
 
 }
