@@ -15,12 +15,12 @@ public class Driver {
 
 		
 //		task2 and 3
-//		Room room1 = new Room(40, 120, Color.cyan);
-//		Room room2 = new Room(67, 98, Color.green);
-//		Room room3 = new Room(60, 90, Color.grey);
-//		Room room4 = new Room(60, 90, Color.pink);
-//		Room room5 = new Room(60, 90, Color.red);
-//		Room room6 = new Room(60, 90, Color.yellow);
+		Room room1 = new Room(40, 120, Color.cyan);
+		Room room2 = new Room(67, 98, Color.green);
+		Room room3 = new Room(60, 90, Color.darkGray);
+		Room room4 = new Room(80, 34, Color.pink);
+		Room room5 = new Room(24, 15, Color.red);
+		Room room6 = new Room(67, 90, Color.yellow);
 //		Room room7 = new Room(60, 90, Color.purple);
 		
 //			task2
@@ -34,8 +34,9 @@ public class Driver {
 //		System.out.println(room3);
 //		System.out.println(room4);
 		
-		
-		
+		Level level1 = new Level();
+		level1.place(room1, 3, 6);
+		System.out.println(level1);
 
 	}
 
