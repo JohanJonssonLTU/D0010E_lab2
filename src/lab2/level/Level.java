@@ -20,7 +20,7 @@ public class Level extends Observable {
 //		this.isRoom(r, y);
 		this.hasRooms();
 		
-		if (this.hasRooms == true) { 
+		if (this.hasRooms == true) {
 			
 				for (int i = 0; i <= this.allRooms.size()-1; i++) {
 				
@@ -29,9 +29,10 @@ public class Level extends Observable {
 				int prevRoomX = this.allRooms.get(i).posX;
 				int prevRoomY = this.allRooms.get(i).posY;
 				
-				if (prevRoomX < prevRoomY) {
-					return false;
-				}
+				return y - r.height < prevRoomY && prevRoomX + prevRoomWidth > x;
+//				if (prevRoomX < prevRoomY) {
+//					return false;
+				
 			}
 		}
 		
