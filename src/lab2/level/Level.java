@@ -28,7 +28,7 @@ public class Level extends Observable {
 			while (i < this.allRooms.size()) {
 				
 				//Använder ny metod som kollar overlap
-				if (this.noOverlap(r, i, x, y) == false) {
+				if (this.overlap(r, i, x, y) == true) {
 					return false;
 				}
 				
@@ -65,7 +65,7 @@ public class Level extends Observable {
 	}
 	
 	//Kollar overlap
-	private boolean noOverlap(Room r, int i, int x, int y) {
+	private boolean overlap(Room r, int i, int x, int y) {
 		
 		int placedRoomWidth = this.allRooms.get(i).width;
 		int placedRoomHeight = this.allRooms.get(i).height;
@@ -73,16 +73,14 @@ public class Level extends Observable {
 		int placedRoomY = this.allRooms.get(i).posY;
 		
 		//TODO LOGIK för riktig overlapkoll
-		return x < placedRoomX 
-//				&&
-//				 y - r.height < prevRoomY &&
-//				 x + r.width > prevRoomX &&
-//				 prevRoomX + prevRoomWidth > x &&
-//				 x > prevRoomX &&
-//				 y < prevRoomY &&
-//				 x < prevRoomWidth &&
-//				 y > prevRoomHeight
-				 ;
+		return 
+				//funkar
+				x > placedRoomX && 
+				x < placedRoomX + placedRoomWidth
+				
+//				y < placedRoomY &&
+//				y > placedRoomY + placedRoomHeight
+				;
 	}
 
 	//Visar listan
