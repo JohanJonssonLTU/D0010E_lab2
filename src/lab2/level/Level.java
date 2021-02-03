@@ -16,50 +16,32 @@ public class Level extends Observable {
 	}
 
 	public boolean place(Room r, int x, int y) {
-//		this.isRoom(r, y);
+		
+		//Finns rum i level?
 		this.hasRooms();
-
+		
+		//Kör överlappkoll om rum finns
 		if (this.hasRooms == true) {
 
-			for (int i = 0; i < this.allRooms.size(); i++) {
-
-				int prevRoomWidth = this.allRooms.get(i).width;
-				int prevRoomHeight = this.allRooms.get(i).height;
-				int prevRoomX = this.allRooms.get(i).posX;
-				int prevRoomY = this.allRooms.get(i).posY;
-
-				return x < prevRoomX;
-//				 &&
-//				 y - r.height < prevRoomY
-				// &&
-				// x + r.width > prevRoomX &&
-				// prevRoomX + prevRoomWidth > x &&
-				// x > prevRoomX &&
-				// y < prevRoomY &&
-				// x < prevRoomWidth &&
-				// y > prevRoomHeight
-//				;
+			int i = 0;
+			
+			while (i < this.allRooms.size()) {
+				
+				//Använder ny metod som kollar overlap
+				if (this.noOverlap(r, i, x, y) == false) {
+					return false;
+				}
+				
+				i++;
 
 			}
 		}
-
+		
+	// sätter korrdinater för övre vänstra hörnet av nytt rum
 		r.posX = x;
 		r.posY = y;
 		this.addRoom(r);
 		return true;
-
-//		int prevRoomWidth = (this.allRooms.get( this.allRooms.size()) ).width;
-//		int prevRoomHeight = (this.allRooms.get( this.allRooms.size()) ).height;
-//		
-//		//testar om rum överlappar FUNKAR EJ
-//		if (prevRoomWidth < x & prevRoomHeight > y) {
-//			return false;
-
-		// sätter korrdinater för övre vänstra hörnet av nytt rum
-//		r.posX = x;
-//		r.posY = y;
-//		this.addRoom(r);
-//		return true;
 
 	}
 
@@ -68,15 +50,12 @@ public class Level extends Observable {
 		this.allRooms.add(r);
 	}
 
-//	private boolean isRoom(Room r, int y) {
-//		return r.height >= y;
-//	}
-
 	// tilldelar ett rum spelare
 	public void firstLocation(Room r) {
 		r.hasPlayer = true;
 	}
 
+	//Kollar om rum finns
 	private void hasRooms() {
 		if (this.allRooms.size() == 0) {
 			this.hasRooms = false;
@@ -84,14 +63,30 @@ public class Level extends Observable {
 			this.hasRooms = true;
 		}
 	}
+	
+	//Kollar overlap
+	private boolean noOverlap(Room r, int i, int x, int y) {
+		
+		int placedRoomWidth = this.allRooms.get(i).width;
+		int placedRoomHeight = this.allRooms.get(i).height;
+		int placedRoomX = this.allRooms.get(i).posX;
+		int placedRoomY = this.allRooms.get(i).posY;
+		
+		//TODO LOGIK för riktig overlapkoll
+		return x < placedRoomX 
+//				&&
+//				 y - r.height < prevRoomY &&
+//				 x + r.width > prevRoomX &&
+//				 prevRoomX + prevRoomWidth > x &&
+//				 x > prevRoomX &&
+//				 y < prevRoomY &&
+//				 x < prevRoomWidth &&
+//				 y > prevRoomHeight
+				 ;
+	}
 
+	//Visar listan
 	public String toString() {
-
-//		for (int i = 0; i < this.allRooms.size(); i++) {
-//			return this.allRooms.get(i) + "\n";
-//		}
-
-//		return this.allRooms.get(0) + "";
 		return this.allRooms.size() + "";
 	}
 

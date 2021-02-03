@@ -34,14 +34,14 @@ public class Driver {
 //		System.out.println(room3);
 //		System.out.println(room4);
 		
-		//borde ge storlek 5
+		//ny place() om nya x är mindre än de existerande. 
 		Level level1 = new Level();
-		level1.place(room1, 50, 50);
-		level1.place(room2, 40, 40);
-		level1.place(room3, 30, 30);
-		level1.place(room4, 20, 20);
+		level1.place(room1, 10, 50);
+		level1.place(room2, 10, 40);
+		level1.place(room3, 10, 30);
+		level1.place(room4, 10, 20);
 		level1.place(room5, 10, 10);
-		level1.place(room6, 0, 0);
+		level1.place(room6, 10, 50);
 		System.out.println(level1);
 		
 
