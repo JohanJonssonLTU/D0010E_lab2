@@ -72,7 +72,7 @@ public class Level extends Observable {
 		int placedRoomX = this.allRooms.get(i).posX;
 		int placedRoomY = this.allRooms.get(i).posY;
 		
-		//TODO LOGIK för riktig overlapkoll
+		//Overlapkoll
 		return
 				//Ny punkt sydöst 
 				(x >= placedRoomX
