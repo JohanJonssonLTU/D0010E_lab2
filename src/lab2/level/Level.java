@@ -74,15 +74,27 @@ public class Level extends Observable {
 		
 		//TODO LOGIK för riktig overlapkoll
 		return
-				//punkt sydöst 
-				x >= placedRoomX
+//				x == placedRoomX
+//				&&
+//				y == placedRoomY
+//				&&
+				//Ny punkt sydöst 
+				(x >= placedRoomX
 				&&
 				x < placedRoomX + placedRoomWidth
 				&&
 				y <= placedRoomY
 				&&
-				y > placedRoomY - placedRoomHeight
-//				&&
+				y > placedRoomY + placedRoomHeight)
+				||
+				//Gammal punkt sydöst
+				(placedRoomX >= x
+				&&
+				placedRoomX < x + r.width
+				&&
+				placedRoomY <= y
+				&&
+				placedRoomY > y + r.height)
 				
 				//punkt sydväst
 //				x <= placedRoomX
