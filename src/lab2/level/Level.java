@@ -6,12 +6,12 @@ import java.util.Observable;
 public class Level extends Observable {
 
 	// lista som innehåller alla rum
-	ArrayList<Room> allRooms;
-	boolean hasRooms;
+	static ArrayList<Room> allRooms;
+	private boolean hasRooms;
 
 	public Level() {
 		// initierar listan
-		this.allRooms = new ArrayList<Room>();
+		allRooms = new ArrayList<Room>();
 		this.hasRooms = false;
 	}
 
@@ -25,7 +25,7 @@ public class Level extends Observable {
 
 			int i = 0;
 			
-			while (i < this.allRooms.size()) {
+			while (i < allRooms.size()) {
 				
 				//Använder ny metod som kollar overlap
 				if (this.overlap(r, i, x, y) == true) {
@@ -47,7 +47,7 @@ public class Level extends Observable {
 
 	// appenderar till listan med rum
 	private void addRoom(Room r) {
-		this.allRooms.add(r);
+		allRooms.add(r);
 	}
 
 	// tilldelar ett rum spelare
@@ -55,9 +55,9 @@ public class Level extends Observable {
 		r.hasPlayer = true;
 	}
 
-	//Kollar om rum finns
+	//Kollar om rum finns i level
 	private void hasRooms() {
-		if (this.allRooms.size() == 0) {
+		if (allRooms.size() == 0) {
 			this.hasRooms = false;
 		} else {
 			this.hasRooms = true;
@@ -67,10 +67,10 @@ public class Level extends Observable {
 	//Kollar overlap
 	private boolean overlap(Room r, int i, int x, int y) {
 		
-		int placedRoomWidth = this.allRooms.get(i).width;
-		int placedRoomHeight = this.allRooms.get(i).height;
-		int placedRoomX = this.allRooms.get(i).posX;
-		int placedRoomY = this.allRooms.get(i).posY;
+		int placedRoomWidth = allRooms.get(i).width;
+		int placedRoomHeight = allRooms.get(i).height;
+		int placedRoomX = allRooms.get(i).posX;
+		int placedRoomY = allRooms.get(i).posY;
 		
 		//Overlapkoll
 		return
@@ -121,7 +121,7 @@ public class Level extends Observable {
 
 	//Visar listan
 	public String toString() {
-		return this.allRooms.size() + "";
+		return allRooms.size() + "";
 	}
 
 }

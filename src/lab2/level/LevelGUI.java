@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 public class LevelGUI implements Observer {
 
 	private Level lv;
-	private Display d;
+	private Display d; 
 	
 	public LevelGUI(Level level, String name) {
 		
@@ -26,7 +26,7 @@ public class LevelGUI implements Observer {
 		
 		// TODO: You should change 200 to a value 
 		// depending on the size of the level
-		d = new Display(lv,200,200);
+		d = new Display(lv,600,600);
 		
 		frame.getContentPane().add(d);
 		frame.pack();
@@ -44,7 +44,7 @@ public class LevelGUI implements Observer {
 		
 		public Display(Level fp, int x, int y) {
 		
-			
+
 			addKeyListener(new Listener());
 			
 			setBackground(Color.GREEN);
@@ -57,9 +57,26 @@ public class LevelGUI implements Observer {
 		public void paintComponent(Graphics g) {
 			super.paintComponent(g);
 			
+			for (int i = 1; i < numberOfRooms(); i++) {
+			g.fillRect(50, 50, 100, 100);
+			g.setColor(Color.black);
+			g.drawRect(50, 50, 100, 100);
+			}
+			
 		}
 		
-
+		private int numberOfRooms() {
+			return Level.allRooms.size();
+		}
+		
+		private Color currentRoomColor() {
+			return Color.blue;
+		}
+		
+		private int roomWidth() {
+			return 0;
+		}
+		
 	 	private class Listener implements KeyListener {
 
 	 		
