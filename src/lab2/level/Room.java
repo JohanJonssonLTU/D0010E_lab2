@@ -4,11 +4,11 @@ import java.awt.Color;
 
 public class Room {
 
-	int posX, posY, width, height;
-	Color color;
-	Room northWall, eastWall, southWall, westWall;
-	boolean hasPlayer;
-	int id;
+	private int posX, posY, width, height;
+	private Color color;
+	private Room northWall, eastWall, southWall, westWall;
+	private boolean hasPlayer;
+	private int id;
 	private static int counter = 0;
 
 	public Room(int dx, int dy, Color color) {
@@ -39,6 +39,15 @@ public class Room {
 		return this.id;
 	}
 	
+	Color getColor() {
+		return this.color;
+	}
+	
+	boolean getPlayerStatus() {
+		return this.hasPlayer;
+	}
+	
+	//Get position
 	int getX() {
 		return this.posX;
 	}
@@ -47,6 +56,16 @@ public class Room {
 		return this.posY;
 	}
 	
+	//Set position
+	void setX(int x) {
+		this.posX = x;
+	}
+	
+	void setY(int y) {
+		this.posY = y;
+	}
+	
+	//Get dimensions
 	int getHeight() {
 		return this.height;
 	}

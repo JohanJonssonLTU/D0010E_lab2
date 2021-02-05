@@ -38,8 +38,8 @@ public class Level extends Observable {
 		}
 		
 	// sätter korrdinater för övre vänstra hörnet av nytt rum
-		r.posX = x;
-		r.posY = y;
+		r.setX(x);
+		r.setY(y);
 		this.addRoom(r);
 		return true;
 
