@@ -49,7 +49,7 @@ public class Level extends Observable {
 	private void addRoom(Room r) {
 		this.allRooms.add(r);
 	}
-
+	
 	// tilldelar ett rum spelare
 	public void firstLocation(Room r) {
 		r.hasPlayer = true;

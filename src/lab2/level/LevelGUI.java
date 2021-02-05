@@ -57,7 +57,7 @@ public class LevelGUI implements Observer {
 		public void paintComponent(Graphics g) {
 			super.paintComponent(g);
 			
-			for (int i = 1; i < numberOfRooms(); i++) {
+			for (int i = 1; i < 2; i++) {
 				g.fillRect(50, 50, 100, 100);
 				g.setColor(Color.black);
 				g.drawRect(50, 50, 100, 100);
@@ -65,15 +65,19 @@ public class LevelGUI implements Observer {
 			
 		}
 		
-		private int numberOfRooms() {
-			return 0;
+		private Room currentRoom() {
+			return null;
 		}
 		
-		private Color currentRoomColor() {
+		private Color roomColor(Room r) {
 			return Color.blue;
 		}
 		
-		private int roomWidth() {
+		private int roomWidth(Room r) {
+			return 0;
+		}
+		
+		private int roomHeight() {
 			return 0;
 		}
 		

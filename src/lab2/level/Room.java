@@ -35,6 +35,26 @@ public class Room {
 		return counter;
 	}
 	
+	int getId() {
+		return this.id;
+	}
+	
+	int getX() {
+		return this.posX;
+	}
+	
+	int getY() {
+		return this.posY;
+	}
+	
+	int getHeight() {
+		return this.height;
+	}
+	
+	int getWidth() {
+		return this.width;
+	}
+	
 	public void connectNorthTo(Room r) {
 		this.northWall = r;
 	}
