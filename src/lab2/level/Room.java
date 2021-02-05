@@ -17,7 +17,7 @@ public class Room {
 		this.posX = 0;
 		this.posY = 0;
 		this.width = dx;
-		this.height = -dy;
+		this.height = dy;
 		this.color = color;
 		
 		this.northWall = null;
@@ -41,7 +41,6 @@ public class Room {
 		return this.color;
 	}
 	
-	//Är spelare i rum?
 	boolean getPlayerStatus() {
 		return this.hasPlayer;
 	}
@@ -99,16 +98,16 @@ public class Room {
 		String connections = "";
 		
 		if (this.northWall != null) {
-			connections += "North wall connects to " +  this.northWall.id + "\n";
+			connections += "North wall connects to room " +  this.northWall.id + "\n";
 		}
 		if (this.eastWall != null) {
-			connections += "East wall connects to " +  this.eastWall.id + "\n";
+			connections += "East wall connects to room " +  this.eastWall.id + "\n";
 		}
 		if (this.southWall != null) {
-			connections += "South wall connects to " +  this.southWall.id + "\n";
+			connections += "South wall connects to room " +  this.southWall.id + "\n";
 		}
 		if (this.westWall != null) {
-			connections += "West wall connects to " +  this.westWall.id + "\n";
+			connections += "West wall connects to room " +  this.westWall.id + "\n";
 		}
 		
 		return connections;

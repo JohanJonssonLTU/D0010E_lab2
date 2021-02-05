@@ -11,21 +11,21 @@ public class Level extends Observable {
 	private int roomCount = 0;
 
 	public Level() {
-		// initierar listan
+		
 		this.allRooms = new ArrayList<Room>();
 		this.hasRooms = false;
+		
 	}
 
-	//Listan med rum
 	private void addRoom(Room r) {
 		this.allRooms.add(r);
 	}
 	
-	Room getRoom(int i) {
+	public Room getRoom(int i) {
 		return this.allRooms.get(i);
 	}
 	
-	int numberOfRooms() {
+	public int numberOfRooms() {
 		return this.allRooms.size();
 	}
 	
@@ -36,11 +36,13 @@ public class Level extends Observable {
 
 	//Kollar om rum finns i level
 	private void hasRooms() {
+		
 		if (this.allRooms.size() == 0) {
 			this.hasRooms = false;
 		} else {
 			this.hasRooms = true;
 		}
+		
 	}
 	
 	//Kollar overlap
@@ -56,7 +58,6 @@ public class Level extends Observable {
 		int newX = x;
 		int newY = y;
 		
-		//Overlapkoll
 		return
 				//Ny punkt sydöst 
 				(
@@ -64,9 +65,9 @@ public class Level extends Observable {
 				&&
 				newX < placedX + placedWidth
 				&&
-				newY <= placedY
+				newY >= placedY
 				&&
-				newY > placedY + placedHeight
+				newY < placedY + placedHeight
 				)
 				||
 				//Existerande punkt sydöst
@@ -75,31 +76,31 @@ public class Level extends Observable {
 				&&
 				placedX < newX + newWidth
 				&&
-				placedY <= newY
+				placedY >= newY
 				&&
-				placedY > newY + newHeight
+				placedY < newY + newHeight
 				)
 				||
 				//Ny punkt sydväst
 				(
 				newX <= placedX
 				&&
-				newY <= placedY
+				newY >= placedY
 				&&
 				newX + newWidth > placedX
 				&&
-				newY > placedY + placedHeight
+				newY < placedY + placedHeight
 				)
 				||
 				//Ny punkt nordöst
 				(
 				newX >= placedX
 				&&
-				newY >= placedY
+				newY <= placedY
 				&&
 				newX < placedX + placedWidth
 				&&
-				newY + newHeight < placedY
+				newY + newHeight > placedY
 				)
 				;
 	}
@@ -116,7 +117,6 @@ public class Level extends Observable {
 			
 			while (i < this.allRooms.size()) {
 				
-				//Använder ny metod som kollar overlap
 				if (this.overlap(r, i, x, y) == true) {
 					return false;
 				}
@@ -136,7 +136,6 @@ public class Level extends Observable {
 
 	}
 	
-	//Room positions
 	String roomPositions() {
 		
 		String coordinatesById = "";

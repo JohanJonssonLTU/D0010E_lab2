@@ -21,13 +21,11 @@ public class LevelGUI implements Observer {
 		
 		this.lv = level;
 		
-		JFrame frame = new JFrame(name);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		// TODO: You should change 200 to a value 
-		// depending on the size of the level
 		d = new Display(lv,700,700);
 		
+		JFrame frame = new JFrame(name);
+		
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().add(d);
 		frame.pack();
 		frame.setLocation(0,0);
@@ -43,17 +41,12 @@ public class LevelGUI implements Observer {
 		
 		
 		public Display(Level fp, int x, int y) {
-		
-
 			addKeyListener(new Listener());
-			
 			setBackground(Color.black);
 			setPreferredSize(new Dimension(x+20,y+20));
 			setFocusable(true);
 		}
 	
-		
-		
 		public void paintComponent(Graphics g) {
 			
 			super.paintComponent(g);
@@ -65,20 +58,17 @@ public class LevelGUI implements Observer {
 				g.fillRect(lv.getRoom(i).getX(), 
 									lv.getRoom(i).getY(), 
 									lv.getRoom(i).getWidth(),
-									-lv.getRoom(i).getHeight());
+									lv.getRoom(i).getHeight());
 				
-				g.setColor(lv.getRoom(i).getColor());
+				g.setColor(Color.white);
 				
 				g.drawRect(lv.getRoom(i).getX(), 
 									lv.getRoom(i).getY(), 
 									lv.getRoom(i).getWidth(),
-									-lv.getRoom(i).getHeight());
+									lv.getRoom(i).getHeight());
 				
 			}
-//			g.setColor(lv.getRoom(0).getColor());
-//			g.fillRect(lv.getRoom(0).getX(), lv.getRoom(0).getY(), lv.getRoom(0).getWidth(), -lv.getRoom(0).getHeight());
-//			g.setColor(lv.getRoom(0).getColor());
-//			g.drawRect(lv.getRoom(0).getX(), lv.getRoom(0).getY(), lv.getRoom(0).getWidth(), -lv.getRoom(0).getHeight());
+			
 		}
 		
 	 	private class Listener implements KeyListener {
@@ -98,6 +88,7 @@ public class LevelGUI implements Observer {
 	
 	public String toString() {
 		return "";
+
 	}
 	
 }
