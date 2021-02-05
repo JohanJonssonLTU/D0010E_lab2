@@ -26,7 +26,7 @@ public class LevelGUI implements Observer {
 		
 		// TODO: You should change 200 to a value 
 		// depending on the size of the level
-		d = new Display(lv,600,600);
+		d = new Display(lv,700,700);
 		
 		frame.getContentPane().add(d);
 		frame.pack();
@@ -36,7 +36,7 @@ public class LevelGUI implements Observer {
 	
 	
 	public void update(Observable arg0, Object arg1) {
-		
+//		d.repaint();
 	}
 	
 	private class Display extends JPanel {
@@ -47,7 +47,7 @@ public class LevelGUI implements Observer {
 
 			addKeyListener(new Listener());
 			
-			setBackground(Color.black);
+			setBackground(Color.white);
 			setPreferredSize(new Dimension(x+20,y+20));
 			setFocusable(true);
 		}
@@ -58,22 +58,27 @@ public class LevelGUI implements Observer {
 			
 			super.paintComponent(g);
 			
-			for (int i = 1; i < lv.numberOfRooms(); i++) {
+//			for (int i = 0; i < lv.numberOfRooms(); i++) {
+//				
+////				g.setColor(lv.getRoom(i).getColor());
+//				
+//				g.fillRect(lv.getRoom(i).getX(), 
+//									lv.getRoom(i).getY(), 
+//									lv.getRoom(i).getHeight(),
+//									lv.getRoom(i).getHeight());
+//				
+//				g.setColor(lv.getRoom(i).getColor());
+//				
+//				g.drawRect(lv.getRoom(i).getX(), 
+//									lv.getRoom(i).getY(), 
+//									lv.getRoom(i).getHeight(),
+//									lv.getRoom(i).getHeight());
 				
-				g.fillRect(lv.getRoom(i).getWidth(), 
-									lv.getRoom(i).getWidth(), 
-									lv.getRoom(i).getHeight(),
-									lv.getRoom(i).getHeight());
-				
-				g.setColor(lv.getRoom(i).getColor());
-				
-				g.drawRect(lv.getRoom(i).getWidth(), 
-									lv.getRoom(i).getWidth(), 
-									lv.getRoom(i).getHeight(),
-									lv.getRoom(i).getHeight());
-				
-			}
-			
+//			}
+			g.setColor(lv.getRoom(0).getColor());
+			g.fillRect(lv.getRoom(0).getX(), lv.getRoom(0).getY(), lv.getRoom(0).getWidth(), -lv.getRoom(0).getHeight());
+			g.setColor(lv.getRoom(0).getColor());
+			g.drawRect(lv.getRoom(0).getX(), lv.getRoom(0).getY(), lv.getRoom(0).getWidth(), -lv.getRoom(0).getHeight());
 		}
 		
 	 	private class Listener implements KeyListener {

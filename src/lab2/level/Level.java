@@ -29,10 +29,6 @@ public class Level extends Observable {
 		return this.allRooms.size();
 	}
 	
-	private void setRoomId(Room r) {
-		r.setId(roomCount);
-	}
-	
 	// tilldelar ett rum spelare
 	public void firstLocation(Room r) {
 		r.setPlayerStatus(true);

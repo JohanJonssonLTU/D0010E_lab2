@@ -14,20 +14,20 @@ public class Driver {
 //		System.out.println("This is a print-out from the driver.");
 
 //		task2 and 3
-		Room room1 = new Room(5, 5, Color.cyan);
-		Room room2 = new Room(5, 5, Color.green);
-		Room room3 = new Room(5, 5, Color.darkGray);
-		Room room4 = new Room(5, 5, Color.pink);
-		Room room5 = new Room(5, 5, Color.red);
-		Room room6 = new Room(5, 5, Color.yellow);
+		Room room1 = new Room(150, 150, Color.cyan);
+//		Room room2 = new Room(50, 50, Color.green);
+//		Room room3 = new Room(50, 50, Color.darkGray);
+//		Room room4 = new Room(5, 5, Color.pink);
+//		Room room5 = new Room(5, 5, Color.red);
+//		Room room6 = new Room(5, 5, Color.yellow);
 
 //			task2
-		room1.connectNorthTo(room2);
-		room2.connectNorthTo(room3);
-		room3.connectWestTo(room4);
-		room4.connectWestTo(room5);
-		room5.connectWestTo(room6);
-		room6.connectWestTo(room2);
+//		room1.connectNorthTo(room2);
+//		room2.connectNorthTo(room3);
+//		room3.connectWestTo(room4);
+//		room4.connectWestTo(room5);
+//		room5.connectWestTo(room6);
+//		room6.connectWestTo(room2);
 
 //		System.out.println(room1);
 //		System.out.println(room2);
@@ -38,23 +38,23 @@ public class Driver {
 
 		// ny place() om nya x är mindre än de existerande.
 		Level level1 = new Level();
-		level1.place(room1, 50, 50);
-		level1.place(room2, 49, 49);
-		level1.place(room3, 200, 200);
-		level1.place(room4, 300, 300);
-		level1.place(room5, 400, 400);
-		level1.place(room6, 500, 500);
+		level1.place(room1, 150, 150);
+//		level1.place(room2, 50, 150);
+//		level1.place(room3, 200, 200);
+//		level1.place(room4, 300, 300);
+//		level1.place(room5, 400, 400);
+//		level1.place(room6, 500, 500);
 		
 		System.out.println(level1);
 		
 		System.out.println(room1);
-		System.out.println(room2);
-		System.out.println(room3);
-		System.out.println(room4);
-	  System.out.println(room5);
-	  System.out.println(room6);
+//		System.out.println(room2);
+//		System.out.println(room3);
+//		System.out.println(room4);
+//	  System.out.println(room5);
+//	  System.out.println(room6);
 	  
-	  LevelGUI gui = new LevelGUI(level1, "bakgård");
+	  new LevelGUI(level1, "bakgård");
 	  
 
 	}

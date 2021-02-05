@@ -119,6 +119,7 @@ public class Room {
 				"id = " + this.id + "\n" +
 				"width = " + this.width + "\n" +
 				"height = " + this.height + "\n" +
+				"Color = " + this.color + "\n" +
 				connectsTo();
 	}
 
