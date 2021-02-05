@@ -85,7 +85,7 @@ public class Level extends Observable {
 				y > placedRoomY + placedRoomHeight
 				)
 				||
-				//Gammal punkt sydöst
+				//Existerande punkt sydöst
 				(
 				placedRoomX >= x
 				&&
@@ -96,7 +96,7 @@ public class Level extends Observable {
 				placedRoomY > y + r.height
 				)
 				||
-				//Nypunkt sydväst
+				//Ny punkt sydväst
 				(
 				x <= placedRoomX
 				&&
@@ -107,7 +107,7 @@ public class Level extends Observable {
 				y > placedRoomY + placedRoomHeight
 				)
 				||
-				//punkt nordöst
+				//Ny punkt nordöst
 				(
 				x >= placedRoomX
 				&&
