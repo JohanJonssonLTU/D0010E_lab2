@@ -50,6 +50,10 @@ public class Level extends Observable {
 		this.allRooms.add(r);
 	}
 	
+	private Room getRoom(int i) {
+		return this.allRooms.get(i);
+	}
+	
 	int numberOfRooms() {
 		return this.allRooms.size();
 	}
@@ -131,19 +135,22 @@ public class Level extends Observable {
 	//Room positions
 	String roomPositions() {
 		
-		String coordinatesById;
+		String coordinatesById = "";
 		
-		for (int i; i < this.numberOfRooms(); i++) {
-			coordinatesById +
-			"ID = " +
+		for (int i = 0; i < this.numberOfRooms(); i++) {
+			coordinatesById +=
+			"ID = " + this.getRoom(i).getId() + "\n" +
+			"X = " + this.getRoom(i).getX() + "\n" +
+			"Y = " + this.getRoom(i).getY() + "\n" + "\n";
 		}
+		
 		return coordinatesById;
 	}
 	
 	public String toString() {
 		return 
-				
-				this.allRooms.size() + "";
+				roomPositions() +
+				numberOfRooms();
 	}
 
 }
