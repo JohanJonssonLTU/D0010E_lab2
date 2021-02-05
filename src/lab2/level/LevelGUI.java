@@ -47,7 +47,7 @@ public class LevelGUI implements Observer {
 
 			addKeyListener(new Listener());
 			
-			setBackground(Color.white);
+			setBackground(Color.black);
 			setPreferredSize(new Dimension(x+20,y+20));
 			setFocusable(true);
 		}
@@ -58,27 +58,27 @@ public class LevelGUI implements Observer {
 			
 			super.paintComponent(g);
 			
-//			for (int i = 0; i < lv.numberOfRooms(); i++) {
-//				
-////				g.setColor(lv.getRoom(i).getColor());
-//				
-//				g.fillRect(lv.getRoom(i).getX(), 
-//									lv.getRoom(i).getY(), 
-//									lv.getRoom(i).getHeight(),
-//									lv.getRoom(i).getHeight());
-//				
-//				g.setColor(lv.getRoom(i).getColor());
-//				
-//				g.drawRect(lv.getRoom(i).getX(), 
-//									lv.getRoom(i).getY(), 
-//									lv.getRoom(i).getHeight(),
-//									lv.getRoom(i).getHeight());
+			for (int i = 0; i < lv.numberOfRooms(); i++) {
+	
+				g.setColor(lv.getRoom(i).getColor());
 				
-//			}
-			g.setColor(lv.getRoom(0).getColor());
-			g.fillRect(lv.getRoom(0).getX(), lv.getRoom(0).getY(), lv.getRoom(0).getWidth(), -lv.getRoom(0).getHeight());
-			g.setColor(lv.getRoom(0).getColor());
-			g.drawRect(lv.getRoom(0).getX(), lv.getRoom(0).getY(), lv.getRoom(0).getWidth(), -lv.getRoom(0).getHeight());
+				g.fillRect(lv.getRoom(i).getX(), 
+									lv.getRoom(i).getY(), 
+									lv.getRoom(i).getWidth(),
+									-lv.getRoom(i).getHeight());
+				
+				g.setColor(lv.getRoom(i).getColor());
+				
+				g.drawRect(lv.getRoom(i).getX(), 
+									lv.getRoom(i).getY(), 
+									lv.getRoom(i).getWidth(),
+									-lv.getRoom(i).getHeight());
+				
+			}
+//			g.setColor(lv.getRoom(0).getColor());
+//			g.fillRect(lv.getRoom(0).getX(), lv.getRoom(0).getY(), lv.getRoom(0).getWidth(), -lv.getRoom(0).getHeight());
+//			g.setColor(lv.getRoom(0).getColor());
+//			g.drawRect(lv.getRoom(0).getX(), lv.getRoom(0).getY(), lv.getRoom(0).getWidth(), -lv.getRoom(0).getHeight());
 		}
 		
 	 	private class Listener implements KeyListener {
