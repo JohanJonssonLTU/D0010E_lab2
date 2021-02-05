@@ -50,9 +50,13 @@ public class Level extends Observable {
 		this.allRooms.add(r);
 	}
 	
+	int numberOfRooms() {
+		return this.allRooms.size();
+	}
+	
 	// tilldelar ett rum spelare
 	public void firstLocation(Room r) {
-		r.hasPlayer = true;
+		r.setPlayerStatus(true);
 	}
 
 	//Kollar om rum finns i level
@@ -67,61 +71,79 @@ public class Level extends Observable {
 	//Kollar overlap
 	private boolean overlap(Room r, int i, int x, int y) {
 		
-		int placedRoomWidth = this.allRooms.get(i).width;
-		int placedRoomHeight = this.allRooms.get(i).height;
-		int placedRoomX = this.allRooms.get(i).posX;
-		int placedRoomY = this.allRooms.get(i).posY;
+		int placedWidth = this.allRooms.get(i).getWidth();
+		int placedHeight = this.allRooms.get(i).getHeight();
+		int placedX = this.allRooms.get(i).getX();
+		int placedY = this.allRooms.get(i).getY();
+		
+		int newHeight = r.getHeight();
+		int newWidth = r.getHeight();
+		int newX = x;
+		int newY = y;
 		
 		//Overlapkoll
 		return
 				//Ny punkt sydöst 
 				(
-				x >= placedRoomX
+				newX >= placedX
 				&&
-				x < placedRoomX + placedRoomWidth
+				newX < placedX + placedWidth
 				&&
-				y <= placedRoomY
+				newY <= placedY
 				&&
-				y > placedRoomY + placedRoomHeight
+				newY > placedY + placedHeight
 				)
 				||
 				//Existerande punkt sydöst
 				(
-				placedRoomX >= x
+				placedX >= newX
 				&&
-				placedRoomX < x + r.width
+				placedX < newX + newWidth
 				&&
-				placedRoomY <= y
+				placedY <= newY
 				&&
-				placedRoomY > y + r.height
+				placedY > newY + newHeight
 				)
 				||
 				//Ny punkt sydväst
 				(
-				x <= placedRoomX
+				newX <= placedX
 				&&
-				y <= placedRoomY
+				newY <= placedY
 				&&
-				x + r.width > placedRoomX
+				newX + newWidth > placedX
 				&&
-				y > placedRoomY + placedRoomHeight
+				newY > placedY + placedHeight
 				)
 				||
 				//Ny punkt nordöst
 				(
-				x >= placedRoomX
+				newX >= placedX
 				&&
-				y >= placedRoomY
+				newY >= placedY
 				&&
-				x < placedRoomX + placedRoomWidth
+				newX < placedX + placedWidth
 				&&
-				y + r.height < placedRoomY
+				newY + newHeight < placedY
 				);
 	}
-
-	//Visar listan
+	
+	//Room positions
+	String roomPositions() {
+		
+		String coordinatesById;
+		
+		for (int i; i < this.numberOfRooms(); i++) {
+			coordinatesById +
+			"ID = " +
+		}
+		return coordinatesById;
+	}
+	
 	public String toString() {
-		return this.allRooms.size() + "";
+		return 
+				
+				this.allRooms.size() + "";
 	}
 
 }

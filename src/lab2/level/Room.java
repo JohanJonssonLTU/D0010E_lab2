@@ -43,8 +43,13 @@ public class Room {
 		return this.color;
 	}
 	
+	//Är spelare i rum?
 	boolean getPlayerStatus() {
 		return this.hasPlayer;
+	}
+	
+	void setPlayerStatus(boolean hasPlayer) {
+		this.hasPlayer = hasPlayer;
 	}
 	
 	//Get position
@@ -74,6 +79,7 @@ public class Room {
 		return this.width;
 	}
 	
+	//Koppla samman med existerande rum
 	public void connectNorthTo(Room r) {
 		this.northWall = r;
 	}
@@ -89,6 +95,8 @@ public class Room {
 	public void connectWestTo(Room r) {
 		this.westWall = r;
 	}
+	
+	//Vägar mellan rum
 	
 	public String toString() {
 		return 
