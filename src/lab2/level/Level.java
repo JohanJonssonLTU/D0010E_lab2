@@ -158,7 +158,7 @@ public class Level extends Observable {
 	public String toString() {
 		return 
 				roomPositions() +
-				numberOfRooms();
+				"Number of rooms = " + numberOfRooms() + "\n";
 	}
 
 }

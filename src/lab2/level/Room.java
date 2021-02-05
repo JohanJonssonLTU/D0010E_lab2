@@ -96,14 +96,31 @@ public class Room {
 	}
 	
 	private String connectsTo() {
-		this.northWall.id
+		
+		String connections = "";
+		
+		if (this.northWall != null) {
+			connections += "North wall connects to " +  this.northWall.id + "\n";
+		}
+		if (this.eastWall != null) {
+			connections += "East wall connects to " +  this.eastWall.id + "\n";
+		}
+		if (this.southWall != null) {
+			connections += "South wall connects to " +  this.southWall.id + "\n";
+		}
+		if (this.westWall != null) {
+			connections += "West wall connects to " +  this.westWall.id + "\n";
+		}
+		
+		return connections;
 	}
 	
 	public String toString() {
 		return 
 				"id = " + this.id + "\n" +
 				"width = " + this.width + "\n" +
-				"height = " + this.height + "\n" ;
+				"height = " + this.height + "\n" +
+				connectsTo();
 	}
 
 }
