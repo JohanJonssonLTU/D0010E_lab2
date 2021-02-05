@@ -105,7 +105,7 @@ public class Level extends Observable {
 				;
 	}
 	
-	boolean place(Room r, int x, int y) {
+	public boolean place(Room r, int x, int y) {
 		
 		//Finns rum i level?
 		this.hasRooms();
