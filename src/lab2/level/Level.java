@@ -6,12 +6,12 @@ import java.util.Observable;
 public class Level extends Observable {
 
 	// lista som innehåller alla rum
-	static ArrayList<Room> allRooms;
+	private ArrayList<Room> allRooms;
 	private boolean hasRooms;
 
 	public Level() {
 		// initierar listan
-		allRooms = new ArrayList<Room>();
+		this.allRooms = new ArrayList<Room>();
 		this.hasRooms = false;
 	}
 
@@ -25,7 +25,7 @@ public class Level extends Observable {
 
 			int i = 0;
 			
-			while (i < allRooms.size()) {
+			while (i < this.allRooms.size()) {
 				
 				//Använder ny metod som kollar overlap
 				if (this.overlap(r, i, x, y) == true) {
@@ -47,7 +47,7 @@ public class Level extends Observable {
 
 	// appenderar till listan med rum
 	private void addRoom(Room r) {
-		allRooms.add(r);
+		this.allRooms.add(r);
 	}
 
 	// tilldelar ett rum spelare
@@ -57,7 +57,7 @@ public class Level extends Observable {
 
 	//Kollar om rum finns i level
 	private void hasRooms() {
-		if (allRooms.size() == 0) {
+		if (this.allRooms.size() == 0) {
 			this.hasRooms = false;
 		} else {
 			this.hasRooms = true;
@@ -121,7 +121,7 @@ public class Level extends Observable {
 
 	//Visar listan
 	public String toString() {
-		return allRooms.size() + "";
+		return this.allRooms.size() + "";
 	}
 
 }
