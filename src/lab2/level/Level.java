@@ -75,41 +75,48 @@ public class Level extends Observable {
 		//Overlapkoll
 		return
 				//Ny punkt sydöst 
-				(x >= placedRoomX
-				&&
-				x < placedRoomX + placedRoomWidth
-				&&
-				y <= placedRoomY
-				&&
-				y > placedRoomY + placedRoomHeight)
+				(
+					x >= placedRoomX
+					&&
+					x < placedRoomX + placedRoomWidth
+					&&
+					y <= placedRoomY
+					&&
+					y > placedRoomY + placedRoomHeight
+				)
 				||
 				//Gammal punkt sydöst
-				(placedRoomX >= x
-				&&
-				placedRoomX < x + r.width
-				&&
-				placedRoomY <= y
-				&&
-				placedRoomY > y + r.height)
+				(
+					placedRoomX >= x
+					&&
+					placedRoomX < x + r.width
+					&&
+					placedRoomY <= y
+					&&
+					placedRoomY > y + r.height
+				)
 				||
 				//Nypunkt sydväst
-				(x <= placedRoomX
-				&&
-				y <= placedRoomY
-				&&
-				x + r.width > placedRoomX
-				&&
-				y > placedRoomY + placedRoomHeight)
+				(
+					x <= placedRoomX
+					&&
+					y <= placedRoomY
+					&&
+					x + r.width > placedRoomX
+					&&
+					y > placedRoomY + placedRoomHeight
+				)
 				||
 				//punkt nordöst
-				(x >= placedRoomX
-				&&
-				y >= placedRoomY
-				&&
-				x < placedRoomX + placedRoomWidth
-				&&
-				y + r.height < placedRoomY)
-				;
+				(
+					x >= placedRoomX
+					&&
+					y >= placedRoomY
+					&&
+					x < placedRoomX + placedRoomWidth
+					&&
+					y + r.height < placedRoomY
+				);
 	}
 
 	//Visar listan
