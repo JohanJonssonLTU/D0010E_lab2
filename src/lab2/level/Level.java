@@ -21,16 +21,16 @@ public class Level extends Observable {
 		this.allRooms.add(r);
 	}
 	
-	public Room getRoom(int i) {
+	Room getRoom(int i) {
 		return this.allRooms.get(i);
 	}
 	
-	public int numberOfRooms() {
+	int numberOfRooms() {
 		return this.allRooms.size();
 	}
 	
 	// tilldelar ett rum spelare
-	public void firstLocation(Room r) {
+	void firstLocation(Room r) {
 		r.setPlayerStatus(true);
 	}
 
@@ -105,7 +105,7 @@ public class Level extends Observable {
 				;
 	}
 	
-	public boolean place(Room r, int x, int y) {
+	boolean place(Room r, int x, int y) {
 		
 		//Finns rum i level?
 		this.hasRooms();
