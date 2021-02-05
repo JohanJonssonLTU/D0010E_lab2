@@ -9,12 +9,10 @@ public class Room {
 	private Room northWall, eastWall, southWall, westWall;
 	private boolean hasPlayer;
 	private int id;
-	private static int counter = 0;
 
 	public Room(int dx, int dy, Color color) {
 		
-		counter++;
-		this.id = currentNum();
+		this.id = 0;
 		
 		this.posX = 0;
 		this.posY = 0;
@@ -30,10 +28,11 @@ public class Room {
 		this.hasPlayer = false;
 		
 	}
-
-	private int currentNum() {
-		return counter;
+	
+	void setId(int i) {
+		this.id = i;
 	}
+	
 	
 	int getId() {
 		return this.id;
@@ -96,7 +95,9 @@ public class Room {
 		this.westWall = r;
 	}
 	
-	//Vägar mellan rum
+	private String connectsTo() {
+		this.northWall.id
+	}
 	
 	public String toString() {
 		return 

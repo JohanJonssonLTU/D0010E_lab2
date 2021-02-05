@@ -29,18 +29,18 @@ public class Driver {
 		room5.connectWestTo(room6);
 		room6.connectWestTo(room2);
 
-		System.out.println(room1);
-		System.out.println(room2);
-		System.out.println(room3);
-		System.out.println(room4);
-	  System.out.println(room5);
-	  System.out.println(room6);
+//		System.out.println(room1);
+//		System.out.println(room2);
+//		System.out.println(room3);
+//		System.out.println(room4);
+//	  System.out.println(room5);
+//	  System.out.println(room6);
 
 		// ny place() om nya x är mindre än de existerande.
 		Level level1 = new Level();
 		level1.place(room1, 50, 50);
-		level1.place(room2, 49, 51);
-		level1.place(room3, 200, 200);
+		level1.place(room2, 51, 51);
+		level1.place(room3, 52, 52);
 		level1.place(room4, 300, 300);
 		level1.place(room5, 400, 400);
 		level1.place(room6, 500, 500);

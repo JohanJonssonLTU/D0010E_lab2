@@ -8,6 +8,7 @@ public class Level extends Observable {
 	// lista som innehåller alla rum
 	private ArrayList<Room> allRooms;
 	private boolean hasRooms;
+	private int roomCount = 0;
 
 	public Level() {
 		// initierar listan
@@ -15,37 +16,7 @@ public class Level extends Observable {
 		this.hasRooms = false;
 	}
 
-	public boolean place(Room r, int x, int y) {
-		
-		//Finns rum i level?
-		this.hasRooms();
-		
-		//Kör överlappkoll om rum finns
-		if (this.hasRooms == true) {
-
-			int i = 0;
-			
-			while (i < this.allRooms.size()) {
-				
-				//Använder ny metod som kollar overlap
-				if (this.overlap(r, i, x, y) == true) {
-					return false;
-				}
-				
-				i++;
-
-			}
-		}
-		
-	// sätter korrdinater för övre vänstra hörnet av nytt rum
-		r.setX(x);
-		r.setY(y);
-		this.addRoom(r);
-		return true;
-
-	}
-
-	// appenderar till listan med rum
+	//Listan med rum
 	private void addRoom(Room r) {
 		this.allRooms.add(r);
 	}
@@ -56,6 +27,10 @@ public class Level extends Observable {
 	
 	int numberOfRooms() {
 		return this.allRooms.size();
+	}
+	
+	private void setRoomId(Room r) {
+		r.setId(roomCount);
 	}
 	
 	// tilldelar ett rum spelare
@@ -132,6 +107,38 @@ public class Level extends Observable {
 				);
 	}
 	
+	public boolean place(Room r, int x, int y) {
+		
+		//Finns rum i level?
+		this.hasRooms();
+		
+		//Kör överlappkoll om rum finns
+		if (this.hasRooms == true) {
+
+			int i = 0;
+			
+			while (i < this.allRooms.size()) {
+				
+				//Använder ny metod som kollar overlap
+				if (this.overlap(r, i, x, y) == true) {
+					return false;
+				}
+				
+				i++;
+
+			}
+		}
+		
+	// sätter korrdinater för övre vänstra hörnet av nytt rum
+		r.setX(x);
+		r.setY(y);
+		roomCount++;
+		r.setId(roomCount);
+		this.addRoom(r);
+		return true;
+
+	}
+	
 	//Room positions
 	String roomPositions() {
 		
@@ -145,6 +152,7 @@ public class Level extends Observable {
 		}
 		
 		return coordinatesById;
+		
 	}
 	
 	public String toString() {
