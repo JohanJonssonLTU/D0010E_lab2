@@ -56,7 +56,7 @@ public class Level extends Observable {
 		int placedY = this.getRoom(i).getY();
 		
 		int newHeight = r.getHeight();
-		int newWidth = r.getHeight();
+		int newWidth = r.getWidth();
 		int newX = x;
 		int newY = y;
 		
@@ -104,7 +104,8 @@ public class Level extends Observable {
 				newX < placedX + placedWidth
 				&&
 				newY + newHeight < placedY
-				);
+				)
+				;
 	}
 	
 	public boolean place(Room r, int x, int y) {
