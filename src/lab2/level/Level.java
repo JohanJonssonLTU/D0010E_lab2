@@ -67,10 +67,10 @@ public class Level extends Observable {
 	//Kollar overlap
 	private boolean overlap(Room r, int i, int x, int y) {
 		
-		int placedRoomWidth = allRooms.get(i).width;
-		int placedRoomHeight = allRooms.get(i).height;
-		int placedRoomX = allRooms.get(i).posX;
-		int placedRoomY = allRooms.get(i).posY;
+		int placedRoomWidth = this.allRooms.get(i).width;
+		int placedRoomHeight = this.allRooms.get(i).height;
+		int placedRoomX = this.allRooms.get(i).posX;
+		int placedRoomY = this.allRooms.get(i).posY;
 		
 		//Overlapkoll
 		return
