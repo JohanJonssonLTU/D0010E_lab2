@@ -21,7 +21,7 @@ public class Level extends Observable {
 		this.allRooms.add(r);
 	}
 	
-	private Room getRoom(int i) {
+	Room getRoom(int i) {
 		return this.allRooms.get(i);
 	}
 	

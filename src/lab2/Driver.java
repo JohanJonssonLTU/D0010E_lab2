@@ -53,6 +53,9 @@ public class Driver {
 		System.out.println(room4);
 	  System.out.println(room5);
 	  System.out.println(room6);
+	  
+	  LevelGUI gui = new LevelGUI(level1, "bakgård");
+	  
 
 	}
 

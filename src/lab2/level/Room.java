@@ -33,7 +33,6 @@ public class Room {
 		this.id = i;
 	}
 	
-	
 	int getId() {
 		return this.id;
 	}
