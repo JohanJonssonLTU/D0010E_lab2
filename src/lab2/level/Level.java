@@ -18,6 +18,7 @@ public class Level extends Observable {
 	}
 
 	private void addRoom(Room r) {
+		roomCount++;
 		this.allRooms.add(r);
 	}
 	
@@ -29,11 +30,6 @@ public class Level extends Observable {
 		return this.allRooms.size();
 	}
 	
-	// tilldelar ett rum spelare
-	void firstLocation(Room r) {
-		r.setPlayerStatus(true);
-	}
-
 	//Kollar om rum finns i level
 	private void hasRooms() {
 		
@@ -59,50 +55,50 @@ public class Level extends Observable {
 		int newY = y;
 		
 		return
-				//Ny punkt sydöst 
-				(
-				newX >= placedX
-				&&
-				newX < placedX + placedWidth
-				&&
-				newY >= placedY
-				&&
-				newY < placedY + placedHeight
-				)
-				||
-				//Existerande punkt sydöst
-				(
-				placedX >= newX
-				&&
-				placedX < newX + newWidth
-				&&
-				placedY >= newY
-				&&
-				placedY < newY + newHeight
-				)
-				||
-				//Ny punkt sydväst
-				(
-				newX <= placedX
-				&&
-				newY >= placedY
-				&&
-				newX + newWidth > placedX
-				&&
-				newY < placedY + placedHeight
-				)
-				||
-				//Ny punkt nordöst
-				(
-				newX >= placedX
-				&&
-				newY <= placedY
-				&&
-				newX < placedX + placedWidth
-				&&
-				newY + newHeight > placedY
-				)
-				;
+			//Ny punkt sydöst 
+			(
+			newX >= placedX
+			&&
+			newX < placedX + placedWidth
+			&&
+			newY >= placedY
+			&&
+			newY < placedY + placedHeight
+			)
+			||
+			//Existerande punkt sydöst/Ny punkt nordväst
+			(
+			placedX >= newX
+			&&
+			placedX < newX + newWidth
+			&&
+			placedY >= newY
+			&&
+			placedY < newY + newHeight
+			)
+			||
+			//Ny punkt sydväst
+			(
+			newX <= placedX
+			&&
+			newY >= placedY
+			&&
+			newX + newWidth > placedX
+			&&
+			newY < placedY + placedHeight
+			)
+			||
+			//Ny punkt nordöst
+			(
+			newX >= placedX
+			&&
+			newY <= placedY
+			&&
+			newX < placedX + placedWidth
+			&&
+			newY + newHeight > placedY
+			)
+		;
 	}
 	
 	public boolean place(Room r, int x, int y) {
@@ -129,14 +125,82 @@ public class Level extends Observable {
 	// sätter korrdinater för övre vänstra hörnet av nytt rum
 		r.setX(x);
 		r.setY(y);
-		roomCount++;
 		r.setId(roomCount);
 		this.addRoom(r);
 		return true;
 
 	}
 	
-	String roomPositions() {
+//tilldelar ett rum ursprunglig spelare
+	public void firstLocation(Room r) {
+		r.setPlayerStatus(true);
+	}
+
+	public Room playerLocation() {
+		
+		int i = 0;
+		
+		while (i < numberOfRooms()) {
+			
+			if (getRoom(i).getPlayerStatus() == true) {
+				break;
+			}
+			
+			i++;
+			
+		}
+		
+		return getRoom(i);
+		
+	}
+	
+	//Move player
+	void playerMoveNorth(Room r) {
+		r.setPlayerStatus(false);
+		r.northConnection().setPlayerStatus(true);
+		setChangedNotify();
+	}
+	
+	void playerMoveEast(Room r) {
+		r.setPlayerStatus(false);
+		r.eastConnection().setPlayerStatus(true);
+		setChangedNotify();
+	}
+	
+	void playerMoveSouth(Room r) {
+		r.setPlayerStatus(false);
+		r.southConnection().setPlayerStatus(true);
+		setChangedNotify();
+	}
+	
+	void playerMoveWest(Room r) {
+		r.setPlayerStatus(false);
+		r.westConnection().setPlayerStatus(true);
+		setChangedNotify();
+	}
+	
+	private void setChangedNotify() {
+		setChanged();
+		notifyObservers();
+	}
+	
+	public void printPlayerLocation() {
+	 		
+	 		String playerRoomS = "";
+	 		
+	 		for (int i = 0; i < this.numberOfRooms(); i++) {
+	 			if (this.getRoom(i).getPlayerStatus() == true ) {
+		 			playerRoomS +=
+						"Player in room " + this.getRoom(i).getId() + "\n";
+	 			} else {
+	 				continue;
+	 			}
+	 		}
+	 		
+	 		System.out.println(playerRoomS);
+	 	}
+	
+	private String roomPositions() {
 		
 		String coordinatesById = "";
 		
@@ -153,8 +217,8 @@ public class Level extends Observable {
 	
 	public String toString() {
 		return 
-				roomPositions() +
-				"Number of rooms = " + numberOfRooms() + "\n";
+			roomPositions() +
+			"Number of rooms = " + numberOfRooms() + "\n";
 	}
 
 }

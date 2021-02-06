@@ -30,11 +30,13 @@ public class LevelGUI implements Observer {
 		frame.pack();
 		frame.setLocation(0,0);
 		frame.setVisible(true);
+		
+		lv.addObserver(this);
 	}
 	
 	
 	public void update(Observable arg0, Object arg1) {
-//		d.repaint();
+		d.repaint();
 	}
 	
 	private class Display extends JPanel {
@@ -50,29 +52,55 @@ public class LevelGUI implements Observer {
 		public void paintComponent(Graphics g) {
 			
 			super.paintComponent(g);
-			
+
 			for (int i = 0; i < lv.numberOfRooms(); i++) {
-	
-				g.setColor(lv.getRoom(i).getColor());
 				
-				g.fillRect(lv.getRoom(i).getX(), 
-									lv.getRoom(i).getY(), 
-									lv.getRoom(i).getWidth(),
-									lv.getRoom(i).getHeight());
+				if (lv.getRoom(i).getPlayerStatus() == true){
+					
+					g.setColor(lv.getRoom(i).getColor());
+					
+					g.fillRect(
+						lv.getRoom(i).getX(), 
+						lv.getRoom(i).getY(), 
+						lv.getRoom(i).getWidth(),
+						lv.getRoom(i).getHeight()
+						);
+						
+						g.setColor(Color.white);
+					
+					g.drawRect(
+						lv.getRoom(i).getX()-10, 
+						lv.getRoom(i).getY()-10, 
+						lv.getRoom(i).getWidth() + 20,
+						lv.getRoom(i).getHeight() + 20
+						);
 				
-				g.setColor(Color.white);
-				
-				g.drawRect(lv.getRoom(i).getX(), 
-									lv.getRoom(i).getY(), 
-									lv.getRoom(i).getWidth(),
-									lv.getRoom(i).getHeight());
-				
+				} else {
+					
+					g.setColor(lv.getRoom(i).getColor());
+					
+					g.fillRect(
+						lv.getRoom(i).getX(), 
+						lv.getRoom(i).getY(), 
+						lv.getRoom(i).getWidth(),
+						lv.getRoom(i).getHeight()
+						);
+					
+					g.setColor(Color.white);
+
+					g.drawRect(
+						lv.getRoom(i).getX(), 
+						lv.getRoom(i).getY(), 
+						lv.getRoom(i).getWidth(),
+						lv.getRoom(i).getHeight()
+						);
+					
+				}	
 			}
 			
 		}
 		
 	 	private class Listener implements KeyListener {
-
 	 		
 	 		public void keyPressed(KeyEvent arg0) {
 	 		}
@@ -81,14 +109,68 @@ public class LevelGUI implements Observer {
 	 		}
 
 	 		public void keyTyped(KeyEvent event) {
+	 			
+	 			switch (event.getKeyChar()) {
+	 			
+				case 'w':
+					
+					System.out.println("w is espresso");
+					
+					if (lv.playerLocation().northConnection() == null) {
+						System.out.println("You hit a wall!");
+					} else {
+						lv.playerMoveNorth(lv.playerLocation());
+					}
+					
+					lv.printPlayerLocation();
+					
+					break;
+				
+				case 'd':
+					
+					System.out.println("d is espresso");
+					
+					if (lv.playerLocation().eastConnection() == null) {
+						System.out.println("You hit a wall!");
+					} else {
+						lv.playerMoveEast(lv.playerLocation());
+					}
+					
+					lv.printPlayerLocation();
+					
+					break;
+				
+				case 's':
+					
+					System.out.println("s is espresso");
+					
+					if (lv.playerLocation().southConnection() == null) {
+						System.out.println("You hit a wall!");
+					} else {
+						lv.playerMoveSouth(lv.playerLocation());
+					}
+					
+					lv.printPlayerLocation();
+					
+					break;
+					
+				case 'a':
+					
+					System.out.println("a is espresso");
+					
+					if (lv.playerLocation().westConnection() == null) {
+						System.out.println("You hit a wall!");
+					} else {
+						lv.playerMoveWest(lv.playerLocation());
+					}
+					
+					lv.printPlayerLocation();
+					
+					break;
+				}
 	 		}
 	 	}
-
-	}
 	
-	public String toString() {
-		return "";
-
 	}
-	
+		
 }

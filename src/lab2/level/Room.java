@@ -93,6 +93,56 @@ public class Room {
 		this.westWall = r;
 	}
 	
+	//Is connected?
+	public boolean isConnectedNorth() {
+		if (this.northWall != null) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public boolean isConnectedEast() {
+		if (this.eastWall != null) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public boolean isConnectedSouth() {
+		if (this.southWall != null) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public boolean isConnectedWest() {
+		if (this.westWall != null) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	//vilket rum vid vägg x?
+	public Room northConnection() {
+		return this.northWall;
+	}
+	
+	public Room eastConnection() {
+		return this.eastWall;
+	}
+	
+	public Room southConnection() {
+		return this.southWall;
+	}
+	
+	public Room westConnection() {
+		return this.westWall;
+	}
+	
 	private String connectsTo() {
 		
 		String connections = "";
@@ -115,11 +165,11 @@ public class Room {
 	
 	public String toString() {
 		return 
-				"id = " + this.id + "\n" +
-				"width = " + this.width + "\n" +
-				"height = " + this.height + "\n" +
-				"Color = " + this.color + "\n" +
-				connectsTo();
+			"id = " + this.id + "\n" +
+			"width = " + this.width + "\n" +
+			"height = " + this.height + "\n" +
+			"Color = " + this.color + "\n" +
+			connectsTo();
 	}
 
 }
