@@ -11,24 +11,7 @@ public class Driver {
 	public void run() {
 
 		System.out.println("This is a print-out from the driver. \n");
-
-		//Connections
-//		room1.connectEastTo(room2);
 		
-//		room2.connectEastTo(room3, level1);
-//		room2.connectWestTo(room1, level1);
-		
-//		room3.connectWestTo(room2, level1);
-//		room3.connectSouthTo(room4, level1);
-//		
-//		room4.connectNorthTo(room3, level1);
-//		room4.connectWestTo(room5, level1);
-//		
-//		room5.connectSouthTo(room6, level1);
-//		room5.connectEastTo(room4, level1);
-//		
-//		room6.connectNorthTo(room5, level1);
-
 		//Skapar nivå
 		Level level1 = new Level();
 		
@@ -39,10 +22,25 @@ public class Driver {
 		Room room4 = new Room(90, 20, Color.pink);
 		Room room5 = new Room(90, 90, Color.red);
 		Room room6 = new Room(20, 90, Color.yellow);
+		Room room7 = new Room(70, 70, Color.red);
 		
 		//Placerar rum
 		level1.place(room1, 100, 100);
 		room1.connectEastTo(room2, level1);
+		
+		//Testrum för place()
+		//1
+		level1.place(room7, 105, 105);
+		room1.connectEastTo(room1, level1);
+		//2
+		level1.place(room7, 95, 105);
+		room1.connectEastTo(room1, level1);
+		//3
+		level1.place(room7, 95, 95);
+		room1.connectEastTo(room1, level1);
+		//4
+		level1.place(room7, 105, 95);
+		room1.connectEastTo(room1, level1);
 		
 		level1.place(room2, 150, 100);
 		room2.connectWestTo(room1, level1);
