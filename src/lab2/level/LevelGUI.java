@@ -21,14 +21,14 @@ public class LevelGUI implements Observer {
 		
 		this.lv = level;
 		
-		d = new Display(lv,700,700);
+		d = new Display(lv,400,400);
 		
 		JFrame frame = new JFrame(name);
 		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().add(d);
 		frame.pack();
-		frame.setLocation(0,0);
+		frame.setLocation(200,200);
 		frame.setVisible(true);
 		
 		lv.addObserver(this);
