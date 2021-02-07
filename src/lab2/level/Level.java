@@ -7,13 +7,10 @@ public class Level extends Observable {
 
 	// lista som innehåller alla rum
 	private ArrayList<Room> allRooms;
-	private boolean hasRooms;
 	private int roomCount = 1;
 
 	public Level() {
-		
 		this.allRooms = new ArrayList<Room>();
-		
 	}
 
 	private void addRoom(Room r) {
