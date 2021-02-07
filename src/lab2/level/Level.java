@@ -8,7 +8,7 @@ public class Level extends Observable {
 	// lista som innehåller alla rum
 	private ArrayList<Room> allRooms;
 	private boolean hasRooms;
-	private int roomCount = 0;
+	private int roomCount = 1;
 
 	public Level() {
 		
@@ -31,13 +31,31 @@ public class Level extends Observable {
 	}
 	
 	//Kollar om rum finns i level
-	private void hasRooms() {
+	private boolean hasRooms() {
 		
-		if (this.allRooms.size() == 0) {
-			this.hasRooms = false;
+		if (numberOfRooms() == 0) {
+			return false;
 		} else {
-			this.hasRooms = true;
+			return true;
 		}
+		
+	}
+	
+	private boolean hasFirstLocation() {
+		
+		int i = 0;
+		
+		while (i < numberOfRooms()) {
+			
+			if (getRoom(i).isFirstLocation() == true) {
+				break;
+			}
+			
+			i++;
+			
+		}
+		
+		return true;
 		
 	}
 	
@@ -103,11 +121,8 @@ public class Level extends Observable {
 	
 	public boolean place(Room r, int x, int y) {
 		
-		//Finns rum i level?
-		this.hasRooms();
-		
 		//Kör överlappkoll om rum finns
-		if (this.hasRooms == true) {
+		if (hasRooms() == true) {
 
 			int i = 0;
 			
@@ -122,18 +137,39 @@ public class Level extends Observable {
 			}
 		}
 		
-	// sätter korrdinater för övre vänstra hörnet av nytt rum
-		r.setX(x);
-		r.setY(y);
-		r.setId(roomCount);
-		this.addRoom(r);
-		return true;
-
+		if (hasFirstLocation() == false) {
+			return false;
+		} else {
+		
+			// sätter koordinater för övre vänstra hörnet av nytt rum
+			r.setX(x);
+			r.setY(y);
+			r.setId(roomCount);
+			this.addRoom(r);
+			return true;
+			
+		}
 	}
 	
 //tilldelar ett rum ursprunglig spelare
-	public void firstLocation(Room r) {
+	public boolean firstLocation(Room r) {
+		
+		int i = 0;
+		
+		while (i < numberOfRooms()) {
+			
+			if (getRoom(i).isFirstLocation() == true) {
+				return false;
+			} 
+			
+			i++;
+			
+		}
+		
 		r.setPlayerStatus(true);
+		r.setFirstLocation(true);
+		return true;
+		
 	}
 
 	public Room playerLocation() {
@@ -206,7 +242,7 @@ public class Level extends Observable {
 		
 		for (int i = 0; i < this.numberOfRooms(); i++) {
 			coordinatesById +=
-			"ID = " + this.getRoom(i).getId() + "\n" +
+			"iD = " + this.getRoom(i).getId() + "\n" +
 			"X = " + this.getRoom(i).getX() + "\n" +
 			"Y = " + this.getRoom(i).getY() + "\n" + "\n";
 		}

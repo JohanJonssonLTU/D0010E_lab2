@@ -12,6 +12,7 @@ public class Driver {
 
 		System.out.println("This is a print-out from the driver. \n");
 
+		//Skapar rum
 		Room room1 = new Room(50, 50, Color.cyan);
 		Room room2 = new Room(90, 20, Color.green);
 		Room room3 = new Room(20, 90, Color.darkGray);
@@ -36,17 +37,24 @@ public class Driver {
 		
 		room6.connectNorthTo(room5);
 
+		//Skapar nivå
 		Level level1 = new Level();
 		
+		//Placerar rum
 		level1.place(room1, 100, 100);
 		level1.place(room2, 150, 100);
+		level1.firstLocation(room2);
 		level1.place(room3, 240, 100);
 		level1.place(room4, 170, 190);
 		level1.place(room5, 80, 190);
 		level1.place(room6, 80, 280);
 		
-		level1.firstLocation(room5);
+//		level1.firstLocation(room5);
 		
+		//Skapar GUI
+		new LevelGUI(level1, "Level 1");
+		
+		//printar misc info
 		System.out.println(level1);
 		
 		System.out.println(room1);
@@ -55,8 +63,6 @@ public class Driver {
 		System.out.println(room4);
 	  System.out.println(room5);
 	  System.out.println(room6);
-	  
-	  new LevelGUI(level1, "Level 1");
 	  
 	  level1.printPlayerLocation();
 	  

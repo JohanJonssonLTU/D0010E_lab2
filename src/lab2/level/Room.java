@@ -9,6 +9,7 @@ public class Room {
 	private Room northWall, eastWall, southWall, westWall;
 	private boolean hasPlayer;
 	private int id;
+	private boolean firstLocation;
 
 	public Room(int dx, int dy, Color color) {
 		
@@ -25,10 +26,12 @@ public class Room {
 		this.southWall = null;
 		this.westWall = null;
 		
+		this.firstLocation = false;
 		this.hasPlayer = false;
 		
 	}
 	
+	//Identification
 	void setId(int i) {
 		this.id = i;
 	}
@@ -41,12 +44,21 @@ public class Room {
 		return this.color;
 	}
 	
+	//Player status
 	boolean getPlayerStatus() {
 		return this.hasPlayer;
 	}
 	
 	void setPlayerStatus(boolean hasPlayer) {
 		this.hasPlayer = hasPlayer;
+	}
+	
+	void setFirstLocation(boolean firstLocation) {
+		this.firstLocation = firstLocation;
+	}
+	
+	boolean isFirstLocation() {
+		return this.firstLocation;
 	}
 	
 	//Get position
@@ -92,41 +104,8 @@ public class Room {
 	public void connectWestTo(Room r) {
 		this.westWall = r;
 	}
-	
-	//Is connected?
-	public boolean isConnectedNorth() {
-		if (this.northWall != null) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
-	public boolean isConnectedEast() {
-		if (this.eastWall != null) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
-	public boolean isConnectedSouth() {
-		if (this.southWall != null) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
-	public boolean isConnectedWest() {
-		if (this.westWall != null) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
-	//vilket rum vid vägg x?
+		
+	//vilket rum vid vägg väderstreck?
 	public Room northConnection() {
 		return this.northWall;
 	}
@@ -141,6 +120,14 @@ public class Room {
 	
 	public Room westConnection() {
 		return this.westWall;
+	}
+	
+	private String printIsFirstLocation() {
+		if (this.isFirstLocation() == true) {
+			return "Is first location";
+		} else {
+			return "";
+		}
 	}
 	
 	private String connectsTo() {
@@ -165,7 +152,8 @@ public class Room {
 	
 	public String toString() {
 		return 
-			"id = " + this.id + "\n" +
+			printIsFirstLocation() + "\n" +
+			"iD = " + this.id + "\n" +
 			"width = " + this.width + "\n" +
 			"height = " + this.height + "\n" +
 			"Color = " + this.color + "\n" +
