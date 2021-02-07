@@ -10,6 +10,7 @@ public class Room {
 	private boolean hasPlayer;
 	private int id;
 	private boolean firstLocation;
+//	private Level inLevel;
 
 	public Room(int dx, int dy, Color color) {
 		
@@ -89,20 +90,28 @@ public class Room {
 	}
 	
 	//Koppla samman med existerande rum
-	public void connectNorthTo(Room r) {
-		this.northWall = r;
+	public void connectNorthTo(Room r, Level lv) { 
+		if (lv.hasFirstLocation() == false) {
+			this.northWall = r;
+		}
 	}
 
-	public void connectEastTo(Room r) {
-		this.eastWall = r;
+	public void connectEastTo(Room r, Level lv) {
+		if (lv.hasFirstLocation() == false) {
+			this.eastWall = r;
+		}
 	}
 
-	public void connectSouthTo(Room r) {
-		this.southWall = r;
+	public void connectSouthTo(Room r, Level lv) {
+		if (lv.hasFirstLocation() == false) {
+			this.southWall = r;
+		}
 	}
 
-	public void connectWestTo(Room r) {
-		this.westWall = r;
+	public void connectWestTo(Room r, Level lv) {
+		if (lv.hasFirstLocation() == false) {
+			this.westWall = r;
+		}
 	}
 		
 	//vilket rum vid vägg väderstreck?

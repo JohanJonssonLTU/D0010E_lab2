@@ -12,6 +12,26 @@ public class Driver {
 
 		System.out.println("This is a print-out from the driver. \n");
 
+		//Connections
+//		room1.connectEastTo(room2);
+		
+//		room2.connectEastTo(room3, level1);
+//		room2.connectWestTo(room1, level1);
+		
+//		room3.connectWestTo(room2, level1);
+//		room3.connectSouthTo(room4, level1);
+//		
+//		room4.connectNorthTo(room3, level1);
+//		room4.connectWestTo(room5, level1);
+//		
+//		room5.connectSouthTo(room6, level1);
+//		room5.connectEastTo(room4, level1);
+//		
+//		room6.connectNorthTo(room5, level1);
+
+		//Skapar nivå
+		Level level1 = new Level();
+		
 		//Skapar rum
 		Room room1 = new Room(50, 50, Color.cyan);
 		Room room2 = new Room(90, 20, Color.green);
@@ -19,35 +39,21 @@ public class Driver {
 		Room room4 = new Room(90, 20, Color.pink);
 		Room room5 = new Room(90, 90, Color.red);
 		Room room6 = new Room(20, 90, Color.yellow);
-
-		//Connections
-		room1.connectEastTo(room2);
-		
-		room2.connectEastTo(room3);
-		room2.connectWestTo(room1);
-		
-		room3.connectWestTo(room2);
-		room3.connectSouthTo(room4);
-		
-		room4.connectNorthTo(room3);
-		room4.connectWestTo(room5);
-		
-		room5.connectSouthTo(room6);
-		room5.connectEastTo(room4);
-		
-		room6.connectNorthTo(room5);
-
-		//Skapar nivå
-		Level level1 = new Level();
 		
 		//Placerar rum
 		level1.place(room1, 100, 100);
+		room1.connectEastTo(room2, level1);
+//		room2.connectWestTo(room3, level1);
+		
 		level1.place(room2, 150, 100);
+		room2.connectWestTo(room1, level1);
 		level1.firstLocation(room2);
-		level1.place(room3, 240, 100);
-		level1.place(room4, 170, 190);
-		level1.place(room5, 80, 190);
-		level1.place(room6, 80, 280);
+		room2.connectEastTo(room3, level1);
+		
+//		level1.place(room3, 240, 100);
+//		level1.place(room4, 170, 190);
+//		level1.place(room5, 80, 190);
+//		level1.place(room6, 80, 280);
 		
 //		level1.firstLocation(room5);
 		

@@ -41,7 +41,7 @@ public class Level extends Observable {
 		
 	}
 	
-	private boolean hasFirstLocation() {
+	boolean hasFirstLocation() {
 		
 		int i = 0;
 		
