@@ -43,19 +43,26 @@ public class Driver {
 		//Placerar rum
 		level1.place(room1, 100, 100);
 		room1.connectEastTo(room2, level1);
-//		room2.connectWestTo(room3, level1);
 		
 		level1.place(room2, 150, 100);
 		room2.connectWestTo(room1, level1);
-		level1.firstLocation(room2);
 		room2.connectEastTo(room3, level1);
 		
-//		level1.place(room3, 240, 100);
-//		level1.place(room4, 170, 190);
-//		level1.place(room5, 80, 190);
-//		level1.place(room6, 80, 280);
+		level1.place(room3, 240, 100);
+		room3.connectWestTo(room2, level1);
+		level1.firstLocation(room2); //start location
+		room3.connectSouthTo(room4, level1);
 		
-//		level1.firstLocation(room5);
+		level1.place(room4, 170, 190);
+		room4.connectNorthTo(room3, level1);
+		room4.connectWestTo(room5, level1);
+		
+		level1.place(room5, 80, 190);
+		room5.connectEastTo(room4, level1);
+		room5.connectSouthTo(room6, level1);
+		
+		level1.place(room6, 80, 280);
+		room6.connectNorthTo(room5, level1);
 		
 		//Skapar GUI
 		new LevelGUI(level1, "Level 1");
