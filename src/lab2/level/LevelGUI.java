@@ -55,17 +55,18 @@ public class LevelGUI implements Observer {
 
 			for (int i = 0; i < lv.numberOfRooms(); i++) {
 				
+				g.setColor(lv.getRoom(i).getColor());
+				
+				g.fillRect(
+					lv.getRoom(i).getX(), 
+					lv.getRoom(i).getY(), 
+					lv.getRoom(i).getWidth(),
+					lv.getRoom(i).getHeight()
+					);
+					
+				
 				if (lv.getRoom(i).getPlayerStatus() == true){
 					
-					g.setColor(lv.getRoom(i).getColor());
-					
-					g.fillRect(
-						lv.getRoom(i).getX(), 
-						lv.getRoom(i).getY(), 
-						lv.getRoom(i).getWidth(),
-						lv.getRoom(i).getHeight()
-						);
-						
 						g.setColor(Color.white);
 					
 					g.drawRect(
@@ -76,15 +77,6 @@ public class LevelGUI implements Observer {
 						);
 				
 				} else {
-					
-					g.setColor(lv.getRoom(i).getColor());
-					
-					g.fillRect(
-						lv.getRoom(i).getX(), 
-						lv.getRoom(i).getY(), 
-						lv.getRoom(i).getWidth(),
-						lv.getRoom(i).getHeight()
-						);
 					
 					g.setColor(Color.white);
 

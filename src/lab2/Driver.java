@@ -45,7 +45,7 @@ public class Driver {
 		level1.place(room5, 80, 190);
 		level1.place(room6, 80, 280);
 		
-		level1.firstLocation(room1);
+		level1.firstLocation(room5);
 		
 		System.out.println(level1);
 		
