@@ -48,14 +48,14 @@ public class Level extends Observable {
 		while (i < numberOfRooms()) {
 			
 			if (getRoom(i).isFirstLocation() == true) {
-				break;
+				return true;
 			}
 			
 			i++;
 			
 		}
 		
-		return true;
+		return false;
 		
 	}
 	
@@ -137,7 +137,7 @@ public class Level extends Observable {
 			}
 		}
 		
-		if (hasFirstLocation() == false) {
+		if (hasFirstLocation() == true) {
 			return false;
 		} else {
 		
