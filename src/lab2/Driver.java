@@ -30,17 +30,17 @@ public class Driver {
 		
 		//Testrum för place()
 		//1
-		level1.place(room7, 105, 105);
-		room1.connectEastTo(room1, level1);
+//		level1.place(room7, 105, 105);
+//		room1.connectEastTo(room1, level1);
 		//2
-		level1.place(room7, 95, 105);
-		room1.connectEastTo(room1, level1);
+//		level1.place(room7, 95, 105);
+//		room1.connectEastTo(room1, level1);
 		//3
-		level1.place(room7, 95, 95);
-		room1.connectEastTo(room1, level1);
+//		level1.place(room7, 95, 95);
+//		room1.connectEastTo(room1, level1);
 		//4
-		level1.place(room7, 105, 95);
-		room1.connectEastTo(room1, level1);
+//		level1.place(room7, 105, 95);
+//		room1.connectEastTo(room1, level1);
 		
 		level1.place(room2, 150, 100);
 		room2.connectWestTo(room1, level1);

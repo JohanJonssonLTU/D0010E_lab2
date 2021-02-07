@@ -13,7 +13,6 @@ public class Level extends Observable {
 	public Level() {
 		
 		this.allRooms = new ArrayList<Room>();
-		this.hasRooms = false;
 		
 	}
 
@@ -33,7 +32,7 @@ public class Level extends Observable {
 	//Kollar om rum finns i level
 	private boolean hasRooms() {
 		
-		if (numberOfRooms() == 0) {
+		if (this.numberOfRooms() == 0) {
 			return false;
 		} else {
 			return true;
@@ -47,7 +46,7 @@ public class Level extends Observable {
 		
 		while (i < numberOfRooms()) {
 			
-			if (getRoom(i).isFirstLocation() == true) {
+			if (this.getRoom(i).isFirstLocation() == true) {
 				return true;
 			}
 			
@@ -122,11 +121,11 @@ public class Level extends Observable {
 	public boolean place(Room r, int x, int y) {
 		
 		//Kör överlappkoll om rum finns
-		if (hasRooms() == true) {
+		if (this.hasRooms() == true) {
 
 			int i = 0;
 			
-			while (i < this.allRooms.size()) {
+			while (i < this.numberOfRooms()) {
 				
 				if (this.overlap(r, i, x, y) == true) {
 					return false;
@@ -137,7 +136,7 @@ public class Level extends Observable {
 			}
 		}
 		
-		if (hasFirstLocation() == true) {
+		if (this.hasFirstLocation() == true) {
 			return false;
 		} else {
 		
@@ -156,9 +155,9 @@ public class Level extends Observable {
 		
 		int i = 0;
 		
-		while (i < numberOfRooms()) {
+		while (i < this.numberOfRooms()) {
 			
-			if (getRoom(i).isFirstLocation() == true) {
+			if (this.getRoom(i).isFirstLocation() == true) {
 				return false;
 			} 
 			
@@ -172,13 +171,13 @@ public class Level extends Observable {
 		
 	}
 
-	public Room playerLocation() {
+	Room playerLocation() {
 		
 		int i = 0;
 		
-		while (i < numberOfRooms()) {
+		while (i < this.numberOfRooms()) {
 			
-			if (getRoom(i).getPlayerStatus() == true) {
+			if (this.getRoom(i).getPlayerStatus() == true) {
 				break;
 			}
 			
@@ -194,25 +193,25 @@ public class Level extends Observable {
 	void playerMoveNorth(Room r) {
 		r.setPlayerStatus(false);
 		r.northConnection().setPlayerStatus(true);
-		setChangedNotify();
+		this.setChangedNotify();
 	}
 	
 	void playerMoveEast(Room r) {
 		r.setPlayerStatus(false);
 		r.eastConnection().setPlayerStatus(true);
-		setChangedNotify();
+		this.setChangedNotify();
 	}
 	
 	void playerMoveSouth(Room r) {
 		r.setPlayerStatus(false);
 		r.southConnection().setPlayerStatus(true);
-		setChangedNotify();
+		this.setChangedNotify();
 	}
 	
 	void playerMoveWest(Room r) {
 		r.setPlayerStatus(false);
 		r.westConnection().setPlayerStatus(true);
-		setChangedNotify();
+		this.setChangedNotify();
 	}
 	
 	private void setChangedNotify() {
@@ -253,8 +252,8 @@ public class Level extends Observable {
 	
 	public String toString() {
 		return 
-			roomPositions() +
-			"Number of rooms = " + numberOfRooms() + "\n";
+			this.roomPositions() +
+			"Number of rooms = " + this.numberOfRooms() + "\n";
 	}
 
 }

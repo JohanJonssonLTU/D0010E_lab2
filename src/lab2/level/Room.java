@@ -10,7 +10,6 @@ public class Room {
 	private boolean hasPlayer;
 	private int id;
 	private boolean firstLocation;
-//	private Level inLevel;
 
 	public Room(int dx, int dy, Color color) {
 		
@@ -132,11 +131,13 @@ public class Room {
 	}
 	
 	private String printIsFirstLocation() {
+		
 		if (this.isFirstLocation() == true) {
 			return "Is first location";
 		} else {
 			return "";
 		}
+		
 	}
 	
 	private String connectsTo() {
@@ -161,12 +162,12 @@ public class Room {
 	
 	public String toString() {
 		return 
-			printIsFirstLocation() + "\n" +
+			this.printIsFirstLocation() + "\n" +
 			"iD = " + this.id + "\n" +
 			"width = " + this.width + "\n" +
 			"height = " + this.height + "\n" +
 			"Color = " + this.color + "\n" +
-			connectsTo();
+			this.connectsTo();
 	}
 
 }
