@@ -7,7 +7,7 @@ public class Level extends Observable {
 
 	// lista som innehåller alla rum
 	private ArrayList<Room> allRooms;
-	private int roomCount = 1;
+	private int roomCount = 0;
 
 	public Level() {
 		this.allRooms = new ArrayList<Room>();
@@ -140,8 +140,8 @@ public class Level extends Observable {
 			// sätter koordinater för övre vänstra hörnet av nytt rum
 			r.setX(x);
 			r.setY(y);
-			r.setId(roomCount);
 			this.addRoom(r);
+			r.setId(roomCount);
 			return true;
 			
 		}
